@@ -17,6 +17,7 @@ Create a LinkedList class that has the following methods inside:
 - insert 
 - includes
 - append
+- to string
 - __str__
 
 Write tests to prove the following functionality:

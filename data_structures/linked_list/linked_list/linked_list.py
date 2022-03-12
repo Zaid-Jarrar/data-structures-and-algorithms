@@ -18,10 +18,11 @@ class Linked_list:
 
 A Linked list Class that has the following methods:
 
-insert
-append
-includes
-__Str__
+insert: add a node at the beginning 
+append: add a node at the end 
+includes: searches if the value exists in the linkned list or not and returns a boolean
+to string: calls a __str__ method to represent the objects
+__Str__: returns a string representation of the objects
 
 
     '''

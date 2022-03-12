@@ -43,6 +43,7 @@ Write tests to prove the following functionality:
 - append() method that takes in one argument (value) and adds that value to the end of the list
 - insert() method that takes in one argument (value) and adds that at the beginning of the list
 - includes() method that takes in one argument (value) and that checks if a value is included in the list and returns a boolean 
+- to_string which returns __str__ that represents the objects
 
 ### Tasks checklist:
 

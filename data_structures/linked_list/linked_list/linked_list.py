@@ -13,6 +13,7 @@ A Class that takes in one argument(value) and creates a node
 
 
 class Linked_list:
+    
 
     '''
 
@@ -95,6 +96,8 @@ if __name__ == "__main__":
     Jarrar = Node("Jarrar")
     ll.append(one)
     ll.insert(zaid)
+    ll.insert(Node('zaid'))
+   
     ll.append(Jarrar)
     print(ll)
 

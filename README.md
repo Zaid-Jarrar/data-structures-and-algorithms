@@ -1,8 +1,6 @@
 # data-structures-and-algorithms
 
 - [ReverseArray](class01/challenge-README.md)
-
 - [Insert Shift Array](class02/challenge02-README.md)
 - [Array Binary Search](class03/challenge03-README.md)
-
-
+- [Linked Lists](data_structures/linked_list/README.md)

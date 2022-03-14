@@ -19,6 +19,8 @@ Create a LinkedList class that has the following methods inside:
 - append
 - to string
 - __str__
+- insert_After
+- insert_before
 
 Write tests to prove the following functionality:
 
@@ -44,6 +46,20 @@ Write tests to prove the following functionality:
 - insert() method that takes in one argument (value) and adds that at the beginning of the list
 - includes() method that takes in one argument (value) and that checks if a value is included in the list and returns a boolean 
 - to_string which returns __str__ that represents the objects
+- insert_after: add a node after a given node to the linked list
+- insert_before: add a node before a given node to the linked list
+
+
+## Whiteboards
+
+- ![Append](whiteboards/Append.jpg)
+- ![InsertAfter](whiteboards/InsertAfter.jpg)
+- ![InsertBefore](whiteboards/InsertBefore.jpg)
+
+
+## Pull Link:
+[Insert]()
+
 
 ### Tasks checklist:
 
@@ -54,3 +70,19 @@ Write tests to prove the following functionality:
 - [x] includes
 - [x] to string
 - [x] append
+- [x] insert After
+- [x] insert Before
+
+
+--------------------------------------
+
+- [X] Top-level README “Table of Contents” is updated
+- [X] README for this challenge is complete
+- [x] Summary, Description, Approach & Efficiency, Solution
+- [x] Picture of whiteboard
+- [x] Link to code
+- [x] Feature tasks for this challenge are completed
+- [X] Unit tests written and passing
+- [X] “Happy Path” - Expected outcome
+- [X] Expected failure
+- [X] Edge Case (if applicable/obvious)

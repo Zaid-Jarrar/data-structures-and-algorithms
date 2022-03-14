@@ -53,6 +53,68 @@ def test_list_None():
 
 
 
+def test_insert_After_middle():
+  add = Linked_list()
+  add.insert(Node('Cool'))
+  add.insert(Node('Is'))
+  add.insert(Node('Zaid'))
+  add.insert_after('Is', 'Jarrar')
+
+  expected = 'Zaid ->Is ->Jarrar ->Cool ->NULL'
+  actual = add.to_string()
+  assert expected == actual
+
+
+def test_insert_After_last():
+  add = Linked_list()
+  add.insert(Node('Cool'))
+  add.insert(Node('Is'))
+  add.insert(Node('Zaid'))
+  add.insert_after('Cool', 'Jarrar')
+
+  expected = 'Zaid ->Is ->Cool ->Jarrar ->NULL'
+  actual = add.to_string()
+  assert expected == actual
+
+def test_insert_before_middle():
+  add_at_beginning = Linked_list()
+  add_at_beginning.insert(Node('Zaid'))
+  add_at_beginning.insert(Node('Am'))
+  add_at_beginning.insert_before('Zaid', 'I')
+
+  expected = 'Am ->I ->Zaid ->NULL'
+  actual = add_at_beginning.to_string()
+  assert expected == actual  
+
+
+
+def test_insert_before_first():
+  add_at_beginning = Linked_list()
+  add_at_beginning.insert(Node('Zaid'))
+  add_at_beginning.insert(Node('Am'))
+  add_at_beginning.insert_before('Am', 'I')
+
+  expected = 'I ->Am ->Zaid ->NULL'
+  actual = add_at_beginning.to_string()
+  assert expected == actual  
+
+
+def test_append_node():
+  fav_list = Linked_list()
+  fav_list.append(Node(True))
+  actual = fav_list.to_string()
+
+  assert   'True ->NULL' == actual
+
+def test_append_nodes():
+  fav_list = Linked_list()
+  fav_list.append(Node(True))
+  fav_list.append(Node('ASAC'))
+  actual = fav_list.to_string()
+
+  assert   'True ->ASAC ->NULL' == actual
+
+
 
 # @pytest.fixture
 # def link():

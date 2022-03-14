@@ -24,6 +24,8 @@ append: add a node at the end
 includes: searches if the value exists in the linkned list or not and returns a boolean
 to string: calls a __str__ method to represent the objects
 __Str__: returns a string representation of the objects
+insert_after: add a node after a given node to the linked list
+insert_before: add a node before a given node to the linked list
 
 
     '''
@@ -38,22 +40,6 @@ __Str__: returns a string representation of the objects
         else:
             new_node.next = self.head
             self.head = new_node
-
-
-    def append(self,added_node):
-        if added_node == '':
-            raise TypeError('Node must not be empty')
-        else:
-            
-            if self.head is None:
-                self.head = added_node
-            
-            else:
-                current = self.head
-                while current.next is not None:
-                    current = current.next
-                current.next = added_node
-
 
     def includes(self,value):
         if value is None:
@@ -83,9 +69,65 @@ __Str__: returns a string representation of the objects
             values += "NULL"
             
         return values
-            
 
-    
+
+
+    def append(self,added_node):
+        if added_node == '':
+            raise TypeError('Node must not be empty')
+        else:
+            
+            if self.head is None:
+                self.head = added_node
+            
+            else:
+                current = self.head
+                while current.next is not None:
+                    current = current.next
+                current.next = added_node
+
+
+    def insert_after(self,previous_node,added_data):
+        
+        if added_data == '':
+            raise TypeError('added data must not be empty')
+        elif previous_node is None:
+            raise TypeError('Previous Node must not be empty')
+        else:
+            current = self.head
+            while current is not None:
+                if current.value == previous_node:
+                    added_node = Node(added_data)
+                    added_node.next = current.next
+                    current.next =  added_node
+                current = current.next
+
+
+    # def insert_before(self,next_node, added_data):
+    def insert_before(self,value, new_value):
+        if self.head is None:
+            return "empty linked list"
+
+        if not isinstance(value, Node):
+            value= Node(value)
+        if not isinstance(new_value, Node):
+            new_value= Node(new_value)
+
+        current = self.head
+
+        if current.value == value.value:
+            new_value.next = current
+            self.head = new_value
+
+        else:
+            while current is not None:
+                if current.next.value == value.value:
+                    new_value.next = current.next
+                    current.next = new_value
+                    return
+                current = current.next
+
+
 
 if __name__ == "__main__":
 
@@ -97,10 +139,15 @@ if __name__ == "__main__":
     ll.append(one)
     ll.insert(zaid)
     ll.insert(Node('zaid'))
-   
     ll.append(Jarrar)
+    ll.insert_before('1','Before')
+    # ll.insert_after('Zaid', 'new')
+  
+
     print(ll)
 
+    
+   
     # linked = Linked_list()
     # linked.head = (Node('Jarrar'))
     # linked.insert('Zaid')

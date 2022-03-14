@@ -58,7 +58,7 @@ Write tests to prove the following functionality:
 
 
 ## Pull Link:
-[Insert]()
+[Insert](https://github.com/Zaid-Jarrar/data-structures-and-algorithms/pull/5)
 
 
 ### Tasks checklist:

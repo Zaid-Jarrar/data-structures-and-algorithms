@@ -115,6 +115,49 @@ def test_append_nodes():
   assert   'True ->ASAC ->NULL' == actual
 
 
+# -----------------------------------------------
+# get kth value from a linked list
+
+def test_k_greater_than_length():
+  with pytest.raises(Exception):
+    add = Linked_list()
+    add.insert(Node('Cool'))
+    add.insert(Node('Is'))
+    add.insert(Node('Zaid'))
+    add.kth_from_end(4)  
+
+
+def test_k_equals_the_length():
+  with pytest.raises(Exception):
+    add = Linked_list()
+    add.insert(Node('Cool'))
+    add.insert(Node('Is'))
+    add.insert(Node('Zaid'))
+    add.kth_from_end(3) 
+
+
+def test_k_is_not_Positive():
+  with pytest.raises(Exception):
+    add = Linked_list()
+    add.insert(Node('Cool'))
+    add.insert(Node('Is'))
+    add.insert(Node('Zaid'))
+    add.kth_from_end(-1)
+
+def test_linked_list_is_one():
+  add = Linked_list()
+  add.insert(Node('Zaid'))
+  add.kth_from_end(0)
+  assert 'Zaid' == add.kth_from_end(0)
+
+def test_k__in_middle():
+
+  add = Linked_list()
+  add.insert(Node('Cool'))
+  add.insert(Node('Is'))
+  add.insert(Node('Zaid'))
+  assert add.kth_from_end(1) == 'Is' 
+
 
 # @pytest.fixture
 # def link():

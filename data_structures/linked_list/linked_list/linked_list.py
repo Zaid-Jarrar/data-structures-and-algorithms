@@ -26,6 +26,7 @@ to string: calls a __str__ method to represent the objects
 __Str__: returns a string representation of the objects
 insert_after: add a node after a given node to the linked list
 insert_before: add a node before a given node to the linked list
+get_kth_value: takes in an integer as an argument and returns value of that starting from the end of linked list
 
 
     '''
@@ -129,18 +130,60 @@ insert_before: add a node before a given node to the linked list
 
 
 
+#---------------------------------------------
+# get the kth value of the linked list in reverse where 0 will output the last node in the list
+
+    def kth_from_end(self,k):
+
+        length = 0
+        if k >= 0:
+            current = self.head
+
+            #while to calculate the length of the linked lists
+            while current is not None:
+                length += 1
+                current = current.next
+                
+            # index less than 0
+        elif k < 0:
+            raise Exception ("Inputted number must be positive")
+
+        if length > k:
+            # bigger or equal
+            current = self.head
+            # k+1 so we get the last one before Null
+            for __ in range(length - (k+1)):
+                current = current.next
+            current = current.value
+            # print(current)
+        else:
+            raise Exception ('Index is out of range')
+        
+        return current
+        
+    
+    
+
+
+
+
+
+
 if __name__ == "__main__":
+
 
     pass
     ll = Linked_list()
-    one = Node("1")
-    zaid = Node("Zaid")
+    one = Node("Zaid")
+    zaid = Node("Am")
     Jarrar = Node("Jarrar")
     ll.append(one)
     ll.insert(zaid)
-    ll.insert(Node('zaid'))
+    ll.insert(Node('I'))
     ll.append(Jarrar)
-    ll.insert_before('1','Before')
+    ll.get_kth_value(0)
+
+    
     # ll.insert_after('Zaid', 'new')
   
 

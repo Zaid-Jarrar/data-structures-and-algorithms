@@ -21,6 +21,8 @@ Create a LinkedList class that has the following methods inside:
 - __str__
 - insert_After
 - insert_before
+- kth_from_end
+
 
 Write tests to prove the following functionality:
 
@@ -48,6 +50,8 @@ Write tests to prove the following functionality:
 - to_string which returns __str__ that represents the objects
 - insert_after: add a node after a given node to the linked list
 - insert_before: add a node before a given node to the linked list
+- kth_from_end: takes in an integer as an argument and returns value of that starting from the end of linked list
+
 
 
 ## Whiteboards
@@ -55,6 +59,7 @@ Write tests to prove the following functionality:
 - ![Append](whiteboards/Append.jpg)
 - ![InsertAfter](whiteboards/InsertAfter.jpg)
 - ![InsertBefore](whiteboards/InsertBefore.jpg)
+- ![Kth From End](whiteboards/KthFromEnd.jpg)
 
 
 ## Pull Link:
@@ -72,6 +77,8 @@ Write tests to prove the following functionality:
 - [x] append
 - [x] insert After
 - [x] insert Before
+- [x] kth_from_end
+
 
 
 --------------------------------------

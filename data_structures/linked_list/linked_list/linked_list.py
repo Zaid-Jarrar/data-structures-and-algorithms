@@ -149,13 +149,13 @@ get_kth_value: takes in an integer as an argument and returns value of that star
             raise Exception ("Inputted number must be positive")
 
         if length > k:
-            # bigger or equal
+            # bigger 
             current = self.head
             # k+1 so we get the last one before Null
             for __ in range(length - (k+1)):
                 current = current.next
             current = current.value
-            # print(current)
+            print(current)
         else:
             raise Exception ('Index is out of range')
         
@@ -181,7 +181,7 @@ if __name__ == "__main__":
     ll.insert(zaid)
     ll.insert(Node('I'))
     ll.append(Jarrar)
-    ll.get_kth_value(0)
+    ll.kth_from_end(0)
 
     
     # ll.insert_after('Zaid', 'new')

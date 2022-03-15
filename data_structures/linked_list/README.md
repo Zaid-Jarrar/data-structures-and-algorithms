@@ -62,8 +62,6 @@ Write tests to prove the following functionality:
 - ![Kth From End](whiteboards/KthFromEnd.jpg)
 
 
-## Pull Link:
-[Insert](https://github.com/Zaid-Jarrar/data-structures-and-algorithms/pull/5)
 
 
 ### Tasks checklist:

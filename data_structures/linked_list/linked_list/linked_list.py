@@ -129,7 +129,6 @@ get_kth_value: takes in an integer as an argument and returns value of that star
                 current = current.next
 
 
-
 #---------------------------------------------
 # get the kth value of the linked list in reverse where 0 will output the last node in the list
 
@@ -161,11 +160,46 @@ get_kth_value: takes in an integer as an argument and returns value of that star
         
         return current
         
-    
-    
+#--------------------------------------------------------------------------
 
+    # zip (connect) 2 linked lists into one linked list amongst them 
+    def zip_linked_lists(self, ll1,ll2):
 
+            ''' 
+            zip linked lists takes in 2 linked lists as arguments 
+            and zips the two linked lists in one of them 
+            and returns the head of the the zipped linked list
+            '''
+            
+            if ll1.head is None and ll2.head is None:
+                raise Exception ('inputted linked lists must not be empty')
+            
+            else:    
+                ll1_current = ll1.head
+                ll2_current = ll2.head
 
+                # swap their positions until one finishes off
+                while ll1_current  and ll2_current:
+
+                    # Save next pointers
+                    
+                    ll1_next = ll1_current.next
+                    ll2_next = ll2_current.next
+
+                    # linking between the 2 lists nodes
+                    ll2_current.next = ll1_next
+                    ll1_current.next = ll2_current
+
+                    # update current pointers for next iteration
+
+                    ll1_current = ll1_next
+                    ll2_current = ll2_next
+                    ll2.head = ll2_current
+
+                # Add the ll2.head or the remaining ll2 nodes at the end of ll1 in case ll1 was shorter than ll2 
+                ll1.append(ll2_current)
+                
+            return ll1.head.value
 
 
 
@@ -177,18 +211,47 @@ if __name__ == "__main__":
     one = Node("Zaid")
     zaid = Node("Am")
     Jarrar = Node("Jarrar")
+
     ll.append(one)
     ll.insert(zaid)
-    ll.insert(Node('I'))
+    # ll.insert(Node('I'))
     ll.append(Jarrar)
-    ll.kth_from_end(0)
+    # ll.insert(Node('three'))
+    # ll.insert(Node('two'))
+    # ll.insert(Node('one'))
 
+# both empty and either is empty and one has one node and the 
+
+    # ll.kth_from_end(0)
+    # print(ll)
+
+    ll2 = Linked_list()
+    first = Node("1")  
+    second = Node("2")
+    third = Node("3")
+    forth = Node("4")
+    five = Node("5")
+
+    ll2.append(first)
+    ll2.append(second)
+    ll2.append(third)
+    # ll2.append(forth)
+    # ll2.append(five)
+    
+
+    # print(ll2)
+
+    # ll.merge(ll,ll2)
+    ll.zip_linked_lists(ll,ll2)
+    print(ll)
+    # print(ll2)
+
+    
     
     # ll.insert_after('Zaid', 'new')
   
 
-    print(ll)
-
+ 
     
    
     # linked = Linked_list()

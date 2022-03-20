@@ -22,6 +22,7 @@ Create a LinkedList class that has the following methods inside:
 - insert_After
 - insert_before
 - kth_from_end
+- zip_linked_lists
 
 
 Write tests to prove the following functionality:
@@ -51,6 +52,7 @@ Write tests to prove the following functionality:
 - insert_after: add a node after a given node to the linked list
 - insert_before: add a node before a given node to the linked list
 - kth_from_end: takes in an integer as an argument and returns value of that starting from the end of linked list
+- zip_linked_lists: zip linked lists takes in 2 linked lists as arguments and zips the two linked lists in one of them and returns the head of the the zipped linked list.
 
 
 
@@ -60,6 +62,8 @@ Write tests to prove the following functionality:
 - ![InsertAfter](whiteboards/InsertAfter.jpg)
 - ![InsertBefore](whiteboards/InsertBefore.jpg)
 - ![Kth From End](whiteboards/KthFromEnd.jpg)
+- ![Zip lists](whiteboards/Zipped-Lists.jpg)
+  
 
 
 
@@ -76,6 +80,7 @@ Write tests to prove the following functionality:
 - [x] insert After
 - [x] insert Before
 - [x] kth_from_end
+- [x] zip_linked_lists
 
 
 

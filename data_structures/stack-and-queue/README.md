@@ -32,7 +32,7 @@ Internally, utilize 2 Stack instances to create and manage the queue
 
 
 ## whiteboards
-![PseudoQueue](assets/StacksIntoQueue.jpg)
+![PseudoQueue](assets/PseudoQueue.jpg)
   
 
 

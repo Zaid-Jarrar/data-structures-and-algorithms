@@ -1,4 +1,4 @@
-from stack_and_queue.stack_queue import Stack, Node,Queue
+from stack_and_queue.stack_queue import Stack, Node,Queue,PseudoQueue
 import pytest
 
 
@@ -97,6 +97,26 @@ def test_queue_empty(queue):
     actual = queue.is_empty()
     expected = False
     assert actual == expected
+
+    
+#--------------------------------------------------------------
+
+    
+def test_pesudo_enqueue():
+    pseudo = PseudoQueue()
+    pseudo.enqueue('Is')
+    assert pseudo.dequeue() == "Is"
+    
+
+def test_pesudo_dequeue():
+    pseudo = PseudoQueue()
+    [pseudo.enqueue(name) for name in ["Zaid", "Jarrar", "99"]]    
+    assert pseudo.dequeue() == "99"
+
+def test_pesudo_dequeue_empty():
+    with pytest.raises(Exception):
+        PseudoQueue().dequeue()   
+
 
 
 

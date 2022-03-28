@@ -82,6 +82,7 @@ get_kth_value: takes in an integer as an argument and returns value of that star
                 self.head = added_node
             
             else:
+         
                 current = self.head
                 while current.next is not None:
                     current = current.next
@@ -202,20 +203,53 @@ get_kth_value: takes in an integer as an argument and returns value of that star
             return ll1.head.value
 
 
+    def is_plindrome(self):
+        string = ""
+        current = self.head
+        while current:
+            string += current.value
+            current = current.next
+        if string == string[::-1]:
+            print(True)
+            return True
+        else:
+            print(False)
+            return False
+
+    def reversedI(self):
+        prev = None
+        current = self.head
+        while current:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+
+
 
 if __name__ == "__main__":
 
 
     pass
     ll = Linked_list()
-    one = Node("Zaid")
-    zaid = Node("Am")
-    Jarrar = Node("Jarrar")
+    # one = Node("Zaid")
+    # zaid = Node("Am")
+    # Jarrar = Node("Jarrar")
 
-    ll.append(one)
-    ll.insert(zaid)
-    # ll.insert(Node('I'))
-    ll.append(Jarrar)
+    ll.append(Node('R'))
+    ll.append(Node('A'))
+    ll.append(Node('D'))
+    ll.append(Node('A'))
+    ll.append(Node('R'))
+    ll.is_plindrome()
+    print(ll)
+    
+
+    # ll.append(one)
+    # ll.insert(zaid)
+    # # ll.insert(Node('I'))
+    # ll.append(Jarrar)
     # ll.insert(Node('three'))
     # ll.insert(Node('two'))
     # ll.insert(Node('one'))
@@ -235,6 +269,12 @@ if __name__ == "__main__":
     ll2.append(first)
     ll2.append(second)
     ll2.append(third)
+    ll2.append(forth)
+    ll2.append(five)
+    ll2.reversedI()
+    print(ll2)
+
+    
     # ll2.append(forth)
     # ll2.append(five)
     
@@ -242,7 +282,7 @@ if __name__ == "__main__":
     # print(ll2)
 
     # ll.merge(ll,ll2)
-    ll.zip_linked_lists(ll,ll2)
+    # ll.zip_linked_lists(ll,ll2)
     print(ll)
     # print(ll2)
 

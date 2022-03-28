@@ -111,7 +111,8 @@ def test_pesudo_enqueue():
 def test_pesudo_dequeue():
     pseudo = PseudoQueue()
     [pseudo.enqueue(name) for name in ["Zaid", "Jarrar", "99"]]    
-    assert pseudo.dequeue() == "99"
+    pseudo.dequeue() 
+    assert pseudo.dequeue() == 'Jarrar'
 
 def test_pesudo_dequeue_empty():
     with pytest.raises(Exception):

@@ -30,15 +30,23 @@ Internally, utilize 2 Stack instances to create and manage the queue
 - enqueue method
 - dequeue method
 
+- AnimalShelter which holds only dogs and cats. The shelter operates using a first-in, first-out approach.
+with the following methods
+
+enqueue method takes in one argument that inserts an animal object into the queue 
+dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
+if it doesnt it will return the longest stayed animal
 
 ## whiteboards
 ![PseudoQueue](assets/PseudoQueue.jpg)
-  
+![FirstinFirstoutAnimal-Shelter](assets/FirstinFirstoutAnimal-Shelter.jpg)  
 
 
 ## Approach & Efficiency
 Big O here is O(1) for both time and space since it is only done on one node at a time hence the O(1) of time. 
 and for the space there is no loops or anythong to increase it, so it is a linear relationship so O(1)
+
+AnimalShelter is O(1) time and space for enqueue and O(n) time and O(n) space for dequeue
 
 
 ## API
@@ -62,3 +70,11 @@ and for the space there is no loops or anythong to increase it, so it is a linea
     Internally, utilize 2 Stack instances to create and manage the queue
     enqueue method:  Inserts value into the PseudoQueue, using a first-in, first-out approach.
     dequeue method:  Extracts a value from the PseudoQueue, using a first-in first-out approach.
+
+
+    AnimalShelter which holds only dogs and cats.
+    The shelter operates using a first-in, first-out approach.
+    Implementing the following methods
+    enqueue method takes in one argument that inserts an animal object into the queue 
+    dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
+    if it doesnt it will return the longest stayed animal

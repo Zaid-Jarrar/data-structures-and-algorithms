@@ -1,4 +1,4 @@
-from stack_and_queue.stack_queue import Stack, Node,Queue,PseudoQueue
+from stack_and_queue.stack_queue import Stack, Node,Queue,PseudoQueue, AnimalShelter,Dog,Cat
 import pytest
 
 
@@ -102,21 +102,54 @@ def test_queue_empty(queue):
 #--------------------------------------------------------------
 
     
-def test_pesudo_enqueue():
-    pseudo = PseudoQueue()
-    pseudo.enqueue('Is')
-    assert pseudo.dequeue() == "Is"
+# def test_pesudo_enqueue():
+#     pseudo = PseudoQueue()
+#     pseudo.enqueue('Is')
+#     pseudo.enqueue('1')
+
+#     assert pseudo.stack1.peek() == "Is"
     
 
-def test_pesudo_dequeue():
-    pseudo = PseudoQueue()
-    [pseudo.enqueue(name) for name in ["Zaid", "Jarrar", "99"]]    
-    pseudo.dequeue() 
-    assert pseudo.dequeue() == 'Jarrar'
+# def test_pesudo_dequeue():
+#     pseudo = PseudoQueue()
+#     [pseudo.enqueue(name) for name in ["Zaid", "Jarrar", "99"]]    
+#     pseudo.dequeue() 
+#     assert pseudo.dequeue() == 'Jarrar'
 
-def test_pesudo_dequeue_empty():
+# def test_pesudo_dequeue_empty():
+#     with pytest.raises(Exception):
+#         PseudoQueue().dequeue()   
+
+# -------------------------------
+#Animal Shelter Queue FIFO
+
+def test_shelter_enqueue():
+    animal = AnimalShelter()
+    [animal.enqueue(i) for i in [ Dog(),Cat(),Cat()]]
+    print(animal)
+    assert str(animal.shelter.peek()) == 'dog'
+
+def test_shelter_happy_path_dequeue():
+    animal = AnimalShelter()
+    [animal.enqueue(i) for i in [Dog(),Cat(),Cat()]]
+    animal.dequeue('cat')
+    assert str(animal.shelter.peek()) == 'cat'
+
+
+def test_shelter_fail_dequeue_empty():
     with pytest.raises(Exception):
-        PseudoQueue().dequeue()   
+        animal = AnimalShelter()
+        animal.dequeue()
+
+def test_shelter_stretch_dequeue():
+
+    animal = AnimalShelter()
+    [animal.enqueue(i) for i in [Dog(),Cat(),Cat()]]
+
+    print(animal)
+    assert str(animal.dequeue('lizard')) == 'dog'
+
+
 
 
 

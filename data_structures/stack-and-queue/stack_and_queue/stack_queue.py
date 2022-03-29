@@ -1,4 +1,5 @@
 
+
 class Node:
     """  
      Node class takes in an argument value and creates a new node 
@@ -115,6 +116,18 @@ class Queue:
         else:
             return False
 
+    def __str__(self):
+        output = ''
+        if not self.front:
+            return 'The queue is empty'
+        else:
+            current = self.front
+            while current:
+                output += f'{current.value} --> '
+                current = current.next
+            output += 'Null'
+            return output
+
 
 class PseudoQueue:
 
@@ -130,44 +143,204 @@ class PseudoQueue:
     def __init__(self):
         self.stack1 = Stack()
         self.stack2 = Stack()
+        self.front = None
+        self.rear = None
 
 
     def enqueue(self,value):
         """ 
         Inserts value into the PseudoQueue, using a first-in, first-out approach.
         """
-        
+        self.top = Node(value)
         self.stack1.push(value)
+        
+
+        # self.stack1.push(value)
+        # while not self.stack1.is_empty():
+        #     self.stack2.push(self.stack1.pop())
+        # return self.stack2
+
+
 
     def dequeue(self):
         """
         Extracts a value from the PseudoQueue, using a first-in first-out approach.
         """
-        
         if not self.stack2.is_empty():
             while not self.stack1.is_empty():
                 self.stack2.push(self.stack1.pop())
+            val = self.stack2.pop()
+            elt = None
+            while not self.stack2.is_empty():    
+                elt = self.stack2.pop()
+                self.stack1.push(elt)
+                self.top = elt
+            return val
 
-        if not self.stack1.is_empty():
-            return self.stack1.pop()
+        # if not self.stack1.is_empty():
+        #     return self.stack1.pop()
+        # else:
+        #     raise(Exception("Pseudo queue is empty !"))
+
+
+    def __str__(self):
+        output = ''
+        if not self.top:
+            return 'The stack is empty'
         else:
-            raise(Exception("Pseudo queue is empty !"))
+            current = self.top
+            while current:
+                output += f'{current.value} -->'
+                current = current.next
+            output += 'Null'
+            return output
+                
+                    
+#--------------------------------------------------------------------
+
+
+
+class Dog():
+    def __init__(self):
+        self.animal_type = 'dog'
+           
+    
+    def __str__(self):
+        return f'{self.animal_type}'
+
+
+class Cat():
+    def __init__(self):
+        self.animal_type = 'cat'
+        
+        # super().__init__(self)    
+
+    def __str__(self):
+        return f'{self.animal_type}'
+
+   
+
+          
+
+class AnimalShelter:
+    """
+        AnimalShelter which holds only dogs and cats.
+        The shelter operates using a first-in, first-out approach.
+        Implementing the following methods
+
+        enqueue method takes in one argument that inserts an animal object into the queue 
+        dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
+        if it doesnt it will return the longest stayed animal
+
+    """
+
+
+    def __init__(self):
+        self.shelter = Queue()
+        self.dog = Dog()
+        self.cat = Cat()
+        
+
+    def __str__(self):
+        return f'{self.shelter}'
+
+    def enqueue(self,animal):
+        """
+        enqueue method takes in one argument that inserts an animal object into the queue 
+        """
+        if not isinstance(animal,Dog) and not isinstance(animal,Cat):
+            raise Exception ('animal must be either a Cat or a Dog object')
+        else:
+            self.shelter.enqueue(animal)
+
+
+
+
+    def dequeue(self,pref='lizard'):
+        """
+        dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
+        if it doesnt it will return the longest stayed animal
+        """
+
+        if pref != 'cat' and pref != 'dog':
+
+            if not self.shelter.is_empty():
+                return self.shelter.dequeue() or 'null'
+            else:
+                raise Exception ('Animal Shelter is empty')
+
+         
+        # while is used to loop over the queue if the counter is less than the length of the queue
+        #checks if the string of the peek is equal to the preferred animal string
+        counter = 0 
+        while (counter < (self.shelter).__sizeof__()):
+
+            if str(self.shelter.peek()) == pref:
+
+                return self.shelter.dequeue()
+
+            else:
+                self.shelter.enqueue(self.shelter.dequeue())
+            counter +=1
+
+        if self.shelter.is_empty():
+            raise Exception ('Animal Shelter is empty') 
+       
+        else:
+            raise Exception (f'Animal Shelter does not have {pref}') 
 
 
 
 if __name__ == '__main__':
-    stack = Stack()
-    stack.push('zaid')
-    stack.push('Jarrar')
 
-    stack.peek()
 
-    queue = PseudoQueue()
-    queue.enqueue('Zaid')
-    queue.enqueue('Jarrar')
+    animal = AnimalShelter()
+    # [animal.enqueue(i) for i in [Dog(),Cat(),Cat()]]
+    animal.enqueue(Dog())
+
+    animal.enqueue(Cat())
+    animal.enqueue(Cat())
+    animal.enqueue(Dog())
+    animal.enqueue(Cat())
+
+    print(animal)
+    
+    # print(animal.shelter.peek())
+  
+    print(animal.dequeue('lizard'))
+    # print(animal.dequeue('dog'))
+    print(animal)
+    # stack = Stack()
+    # stack.push('zaid')
+    # stack.push('Jarrar')
+    # stack.peek()
+
+    # queue = PseudoQueue()
+    # queue.enqueue('1')
+    # queue.enqueue('2')
+    # queue.enqueue('3')
+    # queue.enqueue('4')
+
+    # print(queue)
+
+
+    
+
+
+
+    # print(animal.dequeue('cat'))
+
+
+    # null<-1<- 2 <-3 <- top
+    # empty stack1 3 - 2 - 1
+    # insert into a second stack null 3<-  2 <- 1 top 
+    # pop second stack 1 2 3 --- returned
+
+
+    # print(queue.enqueue('Jarrar'))
 
     # queue.enqueue('Jarrar')
-    print(queue)
+   
     # print(stack)
 #    def enqueue(self,value):
         

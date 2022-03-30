@@ -212,8 +212,7 @@ class Dog():
 class Cat():
     def __init__(self):
         self.animal_type = 'cat'
-        
-        # super().__init__(self)    
+            
 
     def __str__(self):
         return f'{self.animal_type}'
@@ -265,14 +264,14 @@ class AnimalShelter:
         if pref != 'cat' and pref != 'dog':
 
             if not self.shelter.is_empty():
-                return self.shelter.dequeue() or 'null'
+                return self.shelter.dequeue()
             else:
                 raise Exception ('Animal Shelter is empty')
 
          
         # while is used to loop over the queue if the counter is less than the length of the queue
         #checks if the string of the peek is equal to the preferred animal string
-        counter = 0 
+        counter = 0   
         while (counter < (self.shelter).__sizeof__()):
 
             if str(self.shelter.peek()) == pref:
@@ -307,7 +306,7 @@ if __name__ == '__main__':
     
     # print(animal.shelter.peek())
   
-    print(animal.dequeue('lizard'))
+    print(animal.dequeue('dog'))
     # print(animal.dequeue('dog'))
     print(animal)
     # stack = Stack()

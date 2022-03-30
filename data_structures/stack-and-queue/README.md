@@ -78,3 +78,16 @@ AnimalShelter is O(1) time and space for enqueue and O(n) time and O(n) space fo
     enqueue method takes in one argument that inserts an animal object into the queue 
     dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
     if it doesnt it will return the longest stayed animal
+
+
+
+- [x] Top-level README “Table of Contents” is updated
+- [x] README for this challenge is complete
+- [x] Summary, Description, Approach & Efficiency, Solution
+- [x] Picture of whiteboard
+- [x] Link to code
+- [x] Feature tasks for this challenge are completed
+- [x] Unit tests written and passing
+- [x] “Happy Path” - Expected outcome
+- [x] Expected failure
+- [x] Edge Case (if applicable/obvious)

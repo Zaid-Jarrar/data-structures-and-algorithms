@@ -104,20 +104,22 @@ def test_queue_empty(queue):
     
 def test_pesudo_enqueue():
     pseudo = PseudoQueue()
-    pseudo.enqueue('Is')
-    assert pseudo.dequeue() == "Is"
+    pseudo.enqueue('1')
+    pseudo.enqueue('2')
+    pseudo.enqueue('3')
+    assert pseudo.peek() == '1'
     
-
+   
 def test_pesudo_dequeue():
     pseudo = PseudoQueue()
-    [pseudo.enqueue(name) for name in ["Zaid", "Jarrar", "99"]]    
+    [pseudo.enqueue(name) for name in ["1", "2", "3"]]    
     pseudo.dequeue() 
-    assert pseudo.dequeue() == 'Jarrar'
+    assert pseudo.peek() == '2'
 
 def test_pesudo_dequeue_empty():
     with pytest.raises(Exception):
-        PseudoQueue().dequeue()   
-
+        pseudo=PseudoQueue()  
+        pseudo.dequeue()
 
 
 

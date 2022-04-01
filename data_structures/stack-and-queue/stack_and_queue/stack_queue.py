@@ -130,30 +130,62 @@ class PseudoQueue:
     def __init__(self):
         self.stack1 = Stack()
         self.stack2 = Stack()
+        self.front = None
+        self.rear = None
 
 
     def enqueue(self,value):
         """ 
         Inserts value into the PseudoQueue, using a first-in, first-out approach.
-        """
-        
+        """ 
+
+        if self.stack2 is not None:
+            self.stack2 = Stack()
+
         self.stack1.push(value)
+        current = self.stack1.top
+        while current:
+            self.stack2.push(current.value)
+            current = current.next
+        self.switching_stack_to_queue_pointers()
+
+
+    def peek(self):
+        if self.stack1.is_empty == True:
+            raise Exception ('queue is empty')
+        else:
+            return self.front.value
 
     def dequeue(self):
         """
         Extracts a value from the PseudoQueue, using a first-in first-out approach.
         """
-        
-        if not self.stack2.is_empty():
-            while not self.stack1.is_empty():
-                self.stack2.push(self.stack1.pop())
+        if self.stack2.is_empty():
+            raise Exception ('The queue is empty')
+        current = self.stack2.top
+        self.stack2.top = self.stack2.top.next
+        current.next = None
+        self.switching_stack_to_queue_pointers()
 
-        if not self.stack1.is_empty():
-            return self.stack1.pop()
+    # i had taken this idea from Emad Almajdalawi to solve the stack to queue pointers
+    def switching_stack_to_queue_pointers(self):
+        self.front = self.stack2.top
+        temp = self.stack2.top
+        while temp:
+            self.rear = temp
+            temp = temp.next
+
+    def __str__(self):
+        output = ''
+        if not self.front:
+            return 'The queue is empty'
         else:
-            raise(Exception("Pseudo queue is empty !"))
-
-
+            current = self.front
+            while current:
+                output += f'{current.value} -->'
+                current = current.next
+            output += 'Null'
+            return output
 
 if __name__ == '__main__':
     stack = Stack()
@@ -165,6 +197,7 @@ if __name__ == '__main__':
     queue = PseudoQueue()
     queue.enqueue('Zaid')
     queue.enqueue('Jarrar')
+    queue.dequeue()
 
     # queue.enqueue('Jarrar')
     print(queue)

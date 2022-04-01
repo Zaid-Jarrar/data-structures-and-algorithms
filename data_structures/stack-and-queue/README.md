@@ -38,7 +38,7 @@ dequeue method takes in one optional argument that retrieves  the animal the use
 if it doesnt it will return the longest stayed animal
 
 ## whiteboards
-![PseudoQueue](assets/PseudoQueue.jpg)
+![PseudoQueue](assets/PseudoQueue1.jpg)
 ![FirstinFirstoutAnimal-Shelter](assets/FirstinFirstoutAnimal-Shelter-2.jpg)  
 
 

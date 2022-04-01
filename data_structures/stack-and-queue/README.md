@@ -39,7 +39,7 @@ if it doesnt it will return the longest stayed animal
 
 ## whiteboards
 ![PseudoQueue](assets/PseudoQueue.jpg)
-![FirstinFirstoutAnimal-Shelter](assets/FirstinFirstoutAnimal-Shelter.jpg)  
+![FirstinFirstoutAnimal-Shelter](assets/FirstinFirstoutAnimal-Shelter-2.jpg)  
 
 
 ## Approach & Efficiency

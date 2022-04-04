@@ -1,4 +1,4 @@
-from stack_and_queue.stack_queue import Stack, Node,Queue,PseudoQueue, AnimalShelter,Dog,Cat
+from stack_and_queue.stack_queue import Stack, Node,Queue,PseudoQueue, AnimalShelter,Dog,Cat,validate_brackets
 import pytest
 
 
@@ -162,8 +162,21 @@ def test_shelter_stretch_dequeue():
     assert str(animal.dequeue('lizard')) == 'cat'
 
 
+#-----------------------------------------------
 
+def test_false_validate_brackets():
+    actual = validate_brackets('{(})') 
+    expected = False
+    assert actual == expected
 
+def test_true_validate_brackets():
+    actual = validate_brackets('()[[Extra Characters]]') 
+    expected = True
+    assert actual == expected
+
+def test_not_string_validate_brackets():
+    with pytest.raises(Exception):
+        validate_brackets(12) 
 
 
 @pytest.fixture

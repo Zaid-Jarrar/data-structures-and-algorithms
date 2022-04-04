@@ -289,41 +289,46 @@ class AnimalShelter:
                 raise Exception (f'Animal Shelter does not have {pref}')
 
 
+def validate_brackets(string):
+    '''
+    validate_brackets function takes a string of brackets and returns True if the brackets 
+    are balanced and False otherwise
+    '''
+
+    if type(string) != str:
+        raise Exception('Only strings are allowed')
+
+    opening_brackets = ['{' ,'[','(']
+    closing_brackets = ['}' ,']',')']
+
+    stack = Stack()
+    
+    for symbol in string:
+
+        if symbol in opening_brackets:
+            stack.push(symbol)
+
+        elif symbol in closing_brackets:
+            if stack.is_empty():
+                return False
+
+            elif symbol == '}':                
+                if stack.top.value == '{':
+                    stack.pop()
+                    
+            elif symbol == ']':
+                if stack.top.value == '[':
+                    stack.pop()
+            elif symbol == ')':
+                if stack.top.value == '(':
+                    stack.pop()
+
+    if stack.is_empty():
+        return True
+    else:     
+        return False
 
 
-    # def dequeue(self,pref='lizard'):
-    #     """
-    #     dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
-    #     if it doesnt it will return the longest stayed animal
-    #     """
-
-    #     if pref != 'cat' and pref != 'dog':
-
-    #         if not self.shelter.is_empty():
-    #             return self.shelter.dequeue()
-    #         else:
-    #             raise Exception ('Animal Shelter is empty')
-
-         
-    #     # while is used to loop over the queue if the counter is less than the length of the queue
-    #     #checks if the string of the peek is equal to the preferred animal string
-    #     counter = 0 
-
-    #     while (counter < (self.shelter).__sizeof__()):
-            
-    #         if str(self.shelter.peek()) == pref:
-
-    #             return self.shelter.dequeue()
-
-    #         else:
-    #             self.shelter.enqueue(self.shelter.dequeue())
-    #         counter +=1
-
-    #     if self.shelter.is_empty():
-    #         raise Exception ('Animal Shelter is empty') 
-       
-    #     # else:
-    #     #     raise Exception (f'Animal Shelter does not have {pref}') 
 
 
 
@@ -331,23 +336,25 @@ class AnimalShelter:
 if __name__ == '__main__':
 
 
-    animal = AnimalShelter()
-    # # [animal.enqueue(i) for i in [Dog(),Cat(),Cat()]]
-    animal.enqueue(Dog())
+    # animal = AnimalShelter()
+    # # # [animal.enqueue(i) for i in [Dog(),Cat(),Cat()]]
+    # animal.enqueue(Dog())
 
-    animal.enqueue(Dog())
-    animal.enqueue(Cat())
-    animal.enqueue(Dog())
-    animal.enqueue(Cat())
+    # animal.enqueue(Dog())
+    # animal.enqueue(Cat())
+    # animal.enqueue(Dog())
+    # animal.enqueue(Cat())
 
-    print(animal)
-    # print(animal.dequeue('lizard'))
-    print(animal.dequeue('cat'))
-    print(animal.dequeue('dog'))
+    # print(animal)
+    # # print(animal.dequeue('lizard'))
+    # print(animal.dequeue('cat'))
+    # print(animal.dequeue('dog'))
 
 
-    print(animal)
+    # print(animal)
 
+
+    validate_brackets(12)
 
     # print(animal.shelter.peek())
   
@@ -417,3 +424,36 @@ if __name__ == '__main__':
     #                 output += f'{current.value} -> '
     #                 current = current.next
     #     return  output
+        # def dequeue(self,pref='lizard'):
+    #     """
+    #     dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
+    #     if it doesnt it will return the longest stayed animal
+    #     """
+
+    #     if pref != 'cat' and pref != 'dog':
+
+    #         if not self.shelter.is_empty():
+    #             return self.shelter.dequeue()
+    #         else:
+    #             raise Exception ('Animal Shelter is empty')
+
+         
+    #     # while is used to loop over the queue if the counter is less than the length of the queue
+    #     #checks if the string of the peek is equal to the preferred animal string
+    #     counter = 0 
+
+    #     while (counter < (self.shelter).__sizeof__()):
+            
+    #         if str(self.shelter.peek()) == pref:
+
+    #             return self.shelter.dequeue()
+
+    #         else:
+    #             self.shelter.enqueue(self.shelter.dequeue())
+    #         counter +=1
+
+    #     if self.shelter.is_empty():
+    #         raise Exception ('Animal Shelter is empty') 
+       
+    #     # else:
+    #     #     raise Exception (f'Animal Shelter does not have {pref}') 

@@ -37,17 +37,21 @@ enqueue method takes in one argument that inserts an animal object into the queu
 dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
 if it doesnt it will return the longest stayed animal
 
+
+- validate_brackets function takes a string of brackets and returns True if the brackets 
+are balanced and False otherwise
+
 ## whiteboards
 ![PseudoQueue](assets/PseudoQueue1.jpg)
 ![FirstinFirstoutAnimal-Shelter](assets/FirstinFirstoutAnimal-Shelter-2.jpg)  
-
+![Multi-bracket Validation](assets/Multi-bracket-Validation.jpg)
 
 ## Approach & Efficiency
-Big O here is O(1) for both time and space since it is only done on one node at a time hence the O(1) of time. 
+- Big O here is O(1) for both time and space since it is only done on one node at a time hence the O(1) of time. 
 and for the space there is no loops or anythong to increase it, so it is a linear relationship so O(1)
 
-AnimalShelter is O(1) time and space for enqueue and O(n) time and O(n) space for dequeue
-
+- AnimalShelter is O(1) time and space for enqueue and O(n) time and O(n) space for dequeue
+- validate_brackets is O(n) for time and space
 
 ## API
 <!-- Description of each method publicly available to your Stack and Queue-->
@@ -66,7 +70,7 @@ AnimalShelter is O(1) time and space for enqueue and O(n) time and O(n) space fo
     peek: takes no arguments and returns the value of the front node, if queue is empty an exception will be raised
     is_empty: takes no arguments and returns True if queue is empty, False otherwise
 
-    PseudoQueue class will implement our standard queue interface (the two methods listed below),
+    PseudoQueue class will implement our standard queue interface (the two methods listed below)
     Internally, utilize 2 Stack instances to create and manage the queue
     enqueue method:  Inserts value into the PseudoQueue, using a first-in, first-out approach.
     dequeue method:  Extracts a value from the PseudoQueue, using a first-in first-out approach.
@@ -79,7 +83,8 @@ AnimalShelter is O(1) time and space for enqueue and O(n) time and O(n) space fo
     dequeue method takes in one optional argument that retrieves  the animal the user inputs if it exists.
     if it doesnt it will return the longest stayed animal
 
-
+    validate_brackets function takes a string of brackets and returns True if the brackets 
+    are balanced and False otherwise
 
 - [x] Top-level README “Table of Contents” is updated
 - [x] README for this challenge is complete

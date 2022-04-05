@@ -157,14 +157,14 @@ class PseudoQueue:
 
         self.stack1.push(value)
         current = self.stack1.top
-        while current:
+        while current:            
             self.stack2.push(current.value)
             current = current.next
         self.switching_stack_to_queue_pointers()
 
 
     def peek(self):
-        if self.stack1.is_empty == True:
+        if self.stack1.is_empty():
             raise Exception ('queue is empty')
         else:
             return self.front.value
@@ -179,6 +179,10 @@ class PseudoQueue:
         self.stack2.top = self.stack2.top.next
         current.next = None
         self.switching_stack_to_queue_pointers()
+        return current.value
+        
+
+
 
     # i had taken this idea from Emad Almajdalawi to solve the stack to queue pointers
     def switching_stack_to_queue_pointers(self):
@@ -200,7 +204,8 @@ class PseudoQueue:
             output += 'Null'
             return output
                 
-                    
+
+
 #--------------------------------------------------------------------
 
 
@@ -334,11 +339,21 @@ def validate_brackets(string):
 
 
 if __name__ == '__main__':
+    pass
 
 
     # animal = AnimalShelter()
     # # # [animal.enqueue(i) for i in [Dog(),Cat(),Cat()]]
     # animal.enqueue(Dog())
+
+
+    # pseudo = PseudoQueue()
+    # pseudo.enqueue('1')
+    # pseudo.enqueue('2')
+    # pseudo.enqueue('3')
+    # print(pseudo.dequeue())
+    # pseudo.enqueue('4')
+    # print(pseudo.dequeue())
 
     # animal.enqueue(Dog())
     # animal.enqueue(Cat())
@@ -350,11 +365,28 @@ if __name__ == '__main__':
     # print(animal.dequeue('cat'))
     # print(animal.dequeue('dog'))
 
+    # pseudo = PseudoQueue()
+    # pseudo.front = Node(1)
+    # pseudo.front.next = Node(2)
+    # pseudo.front.next.next = Node(3)
+    # print(pseudo)
+    # pseudo.peek()
+    
+    # print(pseudo.dequeue())
 
     # print(animal)
+    # queue = PseudoQueue()
+
+    # queue.enqueue('1')
+    # queue.enqueue('2')
+    # queue.enqueue('3')
+    # queue.dequeue()
+    # print(queue.peek())
+    
 
 
-    validate_brackets(12)
+
+    validate_brackets('12[]')
 
     # print(animal.shelter.peek())
   

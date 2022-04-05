@@ -130,7 +130,13 @@ def test_pesudo_dequeue_empty():
         pseudo.dequeue()
 
 
-
+# def test_pesudo_dequeue():
+#     pseudo = PseudoQueue()
+#     pseudo.front = Node(1)
+#     pseudo.front.next = Node(2)
+#     pseudo.front.next.next = Node(3)
+#     pseudo.dequeue() 
+#     assert pseudo.peek() == 2
 
 
 
@@ -169,10 +175,41 @@ def test_false_validate_brackets():
     expected = False
     assert actual == expected
 
-def test_true_validate_brackets():
+def test_false_validate_brackets2():
+    actual = validate_brackets('[({}]') 
+    expected = False
+    assert actual == expected
+
+def test_false_validate_brackets3():
+    actual = validate_brackets('(](') 
+    expected = False
+    assert actual == expected
+
+def test_true_validate_brackets1():
     actual = validate_brackets('()[[Extra Characters]]') 
     expected = True
     assert actual == expected
+    
+def test_true_validate_brackets2():
+    actual = validate_brackets('{}') 
+    expected = True
+    assert actual == expected
+
+def test_true_validate_brackets3():
+    actual = validate_brackets('{}(){}') 
+    expected = True
+    assert actual == expected
+
+def test_true_validate_brackets4():
+    actual = validate_brackets('(){}[[]]') 
+    expected = True
+    assert actual == expected
+
+def test_true_validate_brackets5():
+    actual = validate_brackets('{}{Code}[Fellows](())') 
+    expected = True
+    assert actual == expected
+
 
 def test_not_string_validate_brackets():
     with pytest.raises(Exception):

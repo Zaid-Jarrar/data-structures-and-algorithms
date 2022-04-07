@@ -43,8 +43,8 @@ class Stack():
     def peek(self):
         if self.top is None:
             raise Exception("Stack is empty")
-        elif self.top.next:
-            return self.top.next.value
+        # elif self.top.next:
+        #     return self.top.next.value
         else:   
             return self.top.value     
 
@@ -334,12 +334,77 @@ def validate_brackets(string):
         return False
 
 
+class MaxStack():
+    def __init__(self):
+        self.stack = Stack()
+        self.max_stack = Stack()
+
+    def __str__(self):
+        return f'{self.stack} // {self.max_stack}'
+
+    def get_max(self):
+        return self.max_stack.top.value
+
+    def push(self, value):
+        self.stack.push(value)
+        if self.max_stack.is_empty() or self.max_stack.top.value < value:
+            self.max_stack.push(value)
+
+    def pop(self):
+        if  self.stack.top.value==self.max_stack.top.value:           
+            self.max_stack.pop()
+        self.stack.pop()
 
 
+
+
+def DuckDuckGoose(strings,k):
+    queue = Queue()
+    for string in strings:
+        queue.enqueue(string)
+
+    for i in range(len(strings)-1): # we want to remove all strings except 1 thats why we put - 1 
+        for j in range(k-1): # we want to add all the strings back to the queue except the k value we need to remove only
+
+            queue.enqueue(queue.dequeue())
+
+        queue.dequeue()
+
+    return queue.front.value # return the front 
 
 
 if __name__ == '__main__':
-    pass
+
+    DuckDuckGoose(['4','3','1'],2)
+
+    max = MaxStack()
+    max.push(1)
+    max.push(2)
+    max.push(3)
+    max.push(1)
+    max.push(6)
+    max.push(4)
+
+    print(max)
+    max.pop()
+    print(max.get_max())
+    print(max)
+    max.pop()
+    print(max.get_max())
+
+    # print('-----------------------------')
+
+    # max.pop()
+    # print(max)
+    # print(max.get_max())
+    # print(max)
+    # max.pop()
+    # print('-----------------------------')
+    # print(max.get_max())
+    # max.pop()
+    
+    # print(max)
+ 
 
 
     # animal = AnimalShelter()

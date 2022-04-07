@@ -46,9 +46,9 @@ def test_stack_empty():
 
 
 
-def test_stack_peek_next(stack):
+def test_stack_peek(stack):
     actual = stack.peek()
-    expected = "2"
+    expected = "3"
     assert actual == expected
     
  

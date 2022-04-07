@@ -18,9 +18,9 @@ Define a method for each of the depth first traversals:
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-Add -- Big O(n) time and O(1) space using a while loop
-Contains-- Big O(n) time and O(1) space by calling on of the order methods and search in the return if value is found or not 
-pre order, in_order post_order -- Big O(n) time and O(n) space using recursion
+- Add -- Big O(n) time and O(1) space using a while loop
+- Contains-- Big O(n) time and O(1) space by calling on of the order methods and search in the return if value is found or not 
+- pre order, in_order post_order -- Big O(n) time and O(n) space using recursion
 
 ## API
 <!-- Description of each method publicly available in each of your trees -->

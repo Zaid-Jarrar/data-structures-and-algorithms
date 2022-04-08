@@ -1,6 +1,6 @@
 from tree.trees import BinaryTree,BinarySearchTree,Node
 import pytest
-
+        
 def test_tree_init():
     tree = BinaryTree()
     assert tree.root == None

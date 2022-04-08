@@ -8,9 +8,9 @@ A Tree is a Data structure in which data items are connected using references in
 - Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
 - Create a Binary Tree class
 Define a method for each of the depth first traversals:
-- pre_order
-- in_order
-- post_order which returns an array of the values, ordered appropriately.
+- **pre_order**
+- **in_order**
+- **post_order** which returns an array of the values, ordered appropriately.
 
 - Create a Binary Search Tree class this class should be a sub-class of the Binary Tree Class with the following additional methods:
 - **Add**:Adds a new node with that value in the correct location in the binary search tree
@@ -18,13 +18,12 @@ Define a method for each of the depth first traversals:
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-- Add -- Big O(n) time and O(1) space using a while loop
-- Contains-- Big O(n) time and O(1) space by calling on of the order methods and search in the return if value is found or not 
+- Add -- Big O(log(n)) time and O(1) space using a while loop
+- Contains-- Big O(log(n)) time and O(1) space by calling on of the order methods and search in the return if value is found or not 
 - pre order, in_order post_order -- Big O(n) time and O(n) space using recursion
 
 ## API
 <!-- Description of each method publicly available in each of your trees -->
-
 Node:
 ```
     
@@ -60,9 +59,9 @@ contains:
 - [x] Create BinaryTree class.
 - [x] Create BinarySearchTree class.
 - [x] Upon instantiation, an empty BinaryTree should be created.
-- [x] pre_order
-- [x] in_order
-- [x] post_order
-- [x] Add
-- [x] Contains
+- [x] pre_order method
+- [x] in_order method
+- [x] post_order method
+- [x] Add method
+- [x] Contains method
  

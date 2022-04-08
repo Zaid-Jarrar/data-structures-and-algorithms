@@ -81,7 +81,7 @@ class BinaryTree:
     def pre_order(self):
         """
     Input: None
-    doing: traverse a tree
+    doing: traverse a tree root >> left >> right
     output: returns an array of the values, ordered appropriately.
     """
         node_array = []
@@ -100,7 +100,7 @@ class BinaryTree:
     def in_order(self):
         """
     Input: None
-    doing: traverse a tree
+    doing: traverse a tree left >> root >> right
     output: returns an array of the values, ordered appropriately.
     """
         node_array = []
@@ -121,7 +121,7 @@ class BinaryTree:
     def post_order(self):
         """
     Input: None
-    doing: traverse a tree
+    doing: traverse a tree left >> right >> root
     output: returns an array of the values, ordered appropriately.
     """
         node_array = []
@@ -175,12 +175,15 @@ class BinarySearchTree(BinaryTree):
     Argument: value
     Returns: boolean indicating whether or not the value is in the tree at least once.
         '''
-        contains = self.in_order() 
-        if value in contains:
+
+        if value in self.in_order():
             print(True)
             return True
         print(False)        
         return False
+
+
+
 
        
 if __name__ == "__main__":
@@ -221,11 +224,13 @@ if __name__ == "__main__":
     search.Add(24)
     search.root.display()
 
-    # search.contain('C')
+    search.Contains(100)
     # tree.pre_order_itiration()
     # tree.pre_order()
     # tree.in_order()
     # tree.post_order()
+
+
  # INSERT USING RECURSION
         # def _walk(current):                
         #     # if node.value < current.value or node.value > current.value:

@@ -10,6 +10,11 @@ def test_tree_one_node():
     tree.root = Node(1)
     assert tree.root.value == 1
 
+def test_tree_error():
+    with pytest.raises(Exception):
+        tree = BinaryTree()
+        assert tree.in_order()
+
 def test_tree_children_nodes(tree):
     assert tree.root.value == 5
     assert tree.root.left.value == 2

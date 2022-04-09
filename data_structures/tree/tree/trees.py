@@ -84,6 +84,8 @@ class BinaryTree:
     doing: traverse a tree root >> left >> right
     output: returns an array of the values, ordered appropriately.
     """
+        if self.root is None:
+            raise Exception ("Tree is empty")
         node_array = []
         def _walk(node):
             node_array.append(node.value)
@@ -103,6 +105,8 @@ class BinaryTree:
     doing: traverse a tree left >> root >> right
     output: returns an array of the values, ordered appropriately.
     """
+        if self.root is None:
+            raise Exception ("Tree is empty")    
         node_array = []
         def _walk(node):
 
@@ -124,6 +128,8 @@ class BinaryTree:
     doing: traverse a tree left >> right >> root
     output: returns an array of the values, ordered appropriately.
     """
+        if self.root is None:
+            raise Exception ("Tree is empty")
         node_array = []
 
         def _walk(node):
@@ -137,8 +143,29 @@ class BinaryTree:
         print(node_array)
         return node_array
 
+    # def breathfirst(self): 
+    #     if self.root is None:
+    #         raise Exception ("Tree is empty")
+    #     queue = Queue()
+    #     current = self.root
+    #     queue.enqueue(current)
+    #     my_list = []
+    #     while not queue.is_empty():
+    #         current = queue.dequeue()
 
+    #         print(f'---->  {current.value}')
+    #         if current.value not in my_list:
+    #             my_list.append(current.value)
+    #         if current.left:
+               
+    #             queue.enqueue(current.left)
+                
+    #         if current.right:
+    #             queue.enqueue(current.right)
 
+    #     print(my_list)
+
+        
 class BinarySearchTree(BinaryTree):
     '''
     A subclass of BinaryTree used to add values to the tree and search for them
@@ -183,6 +210,37 @@ class BinarySearchTree(BinaryTree):
         return False
 
 
+# class QNode():
+#     def __init__(self,value):
+#         self.value = value
+#         self.next = None
+    
+# class Queue:
+#     def __init__(self):
+#         self.front = None
+#         self.rear = None
+    
+#     def enqueue(self,value):
+#         node = QNode(value)
+#         if self.front is None:
+#             self.front = node
+#             self.rear = node
+#         self.rear.next = node
+#         self.rear = node
+    
+#     def dequeue(self):
+#         if self.front is None:
+#             raise Exception('Queue is empty')
+#         temp = self.front
+#         self.front = self.front.next
+#         temp.next = None
+#         print(temp.value.value)
+#         return temp.value
+
+#     def is_empty(self):
+#         if self.front is None:
+#             return True
+#         return False
 
 
        
@@ -200,6 +258,7 @@ if __name__ == "__main__":
     node2.left = node4
     node2.right = node5
 
+
     # node1 = Node('A')
     # node2 = Node('B')
     # node3 = Node('C')
@@ -213,18 +272,24 @@ if __name__ == "__main__":
 
 
 
-    # tree = BinaryTree()
-    # tree.root = node1
-    tree2 = BinarySearchTree()
-    [tree2.Add(i) for i in [23,8,42,4,16,27]]
-    tree2.post_order()
-    
-    search = BinarySearchTree()
-    search.root = node1
-    search.Add(24)
-    search.root.display()
+    tree = BinaryTree()
+    tree.root = node1
+    tree.root.display()
 
-    search.Contains(100)
+    # tree.breathfirst()
+    
+
+    # tree2 = BinarySearchTree()
+    # [tree2.Add(i) for i in [23,8,42,4,16,27]]
+    # tree2.in_order()
+    
+    # search = BinarySearchTree()
+    # # search.root = node1
+    # search.Add(24)
+    # search.root.display()
+
+    # search.Contains(100)
+
     # tree.pre_order_itiration()
     # tree.pre_order()
     # tree.in_order()
@@ -297,7 +362,7 @@ if __name__ == "__main__":
         #             return True
         #         return False
 
-            # def pre_order_itiration(self):
+    # def pre_order_itiration(self):
     #     """
     # A method to traverse the tree elements
     # input: nothing
@@ -317,3 +382,5 @@ if __name__ == "__main__":
 
     #         if current.left:
     #             stack.push(current.left)
+
+

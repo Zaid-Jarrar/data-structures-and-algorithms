@@ -151,20 +151,19 @@ class BinaryTree:
     #     queue.enqueue(current)
     #     my_list = []
     #     while not queue.is_empty():
-    #         current = queue.dequeue()
+    #         current = queue.front
 
-    #         print(f'---->  {current.value}')
-    #         if current.value not in my_list:
-    #             my_list.append(current.value)
-    #         if current.left:
+    #         print(f'---->  {current.value.value}')
+    #         if current.value.left:
                
-    #             queue.enqueue(current.left)
+    #             queue.enqueue(current.value.left)
                 
-    #         if current.right:
-    #             queue.enqueue(current.right)
+    #         if current.value.right:
+    #             queue.enqueue(current.value.right)
+    #         my_list.append(current.value.value)
+    #         queue.dequeue()
 
     #     print(my_list)
-
         
 class BinarySearchTree(BinaryTree):
     '''
@@ -202,12 +201,34 @@ class BinarySearchTree(BinaryTree):
     Argument: value
     Returns: boolean indicating whether or not the value is in the tree at least once.
         '''
+        if self.root is None:
+            return False
+        current = self.root
 
-        if value in self.in_order():
-            print(True)
-            return True
-        print(False)        
-        return False
+        while current:
+            if current.value == value:
+                # print(True)
+                return True
+            elif value < current.value:
+                if current.left:
+                    current = current.left
+                else:
+                    # print(False)
+                    return False
+            
+            else:
+                if current.right:
+                    current = current.right
+                else:
+                    # print(False)
+                    return False
+            
+        # OR
+        # if value in self.in_order():
+        #     print(True)
+        #     return True
+        # print(False)        
+        # return False
 
 
 # class QNode():
@@ -283,12 +304,12 @@ if __name__ == "__main__":
     # [tree2.Add(i) for i in [23,8,42,4,16,27]]
     # tree2.in_order()
     
-    # search = BinarySearchTree()
-    # # search.root = node1
-    # search.Add(24)
-    # search.root.display()
+    search = BinarySearchTree()
+    search.root = node1
+    search.Add(24)
+    search.root.display()
 
-    # search.Contains(100)
+    search.Contains(23)
 
     # tree.pre_order_itiration()
     # tree.pre_order()

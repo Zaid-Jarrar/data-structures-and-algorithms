@@ -36,8 +36,17 @@ def test_tree_contains_true(tree2):
 def test_tree_contains_false(tree2):
     assert tree2.Contains(100) == False
 
-def test_tree_get_max(bitree):
+#-------------------------------------------------
+
+def test_tree_get_max_50(bitree):
     assert bitree.Get_max() == 50
+
+def test_tree_get_max2_5(binary_tree):
+    assert binary_tree.Get_max() == 5
+
+def test_tree_root_fail(binary_tree_root):
+    with pytest.raises(Exception):
+        assert binary_tree_root.root
 
 @pytest.fixture
 def tree():
@@ -70,6 +79,20 @@ def bitree():
     node3.right = node7
     node2.left = node4
     node2.right = node5
+
     bitree = BinaryTree()
     bitree.root = node1
     return bitree
+
+@pytest.fixture
+def binary_tree():
+    binary_tree = BinaryTree()
+    binary_tree.root = Node(5)
+    return binary_tree
+
+
+@pytest.fixture
+def binary_tree_root():
+    binary_tree_none = BinaryTree()
+
+    return binary_tree_none

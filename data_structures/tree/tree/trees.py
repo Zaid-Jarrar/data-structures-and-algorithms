@@ -165,6 +165,9 @@ class BinaryTree:
 
     #     print(my_list)
     def Get_max(self):
+        """  
+        Input: Takes 0 arguments 
+        Output: Return the maximum value in the tree """
         if self.root is None:
             raise Exception ("Tree is empty")
         current = self.root

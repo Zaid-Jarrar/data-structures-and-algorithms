@@ -21,6 +21,12 @@ Define a method for each of the depth first traversals:
 - Add -- Big O(log(n)) time and O(1) space using a while loop
 - Contains-- Big O(log(n)) time and O(1) space by calling on of the order methods and search in the return if value is found or not 
 - pre order, in_order post_order -- Big O(n) time and O(n) space using recursion
+- Get_max: Using a queue instance and a loop ---Big O(n) time and O(n) space
+
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+![Tree-Max](assets/Tree-Max.jpg)
+
 
 ## API
 <!-- Description of each method publicly available in each of your trees -->
@@ -40,6 +46,8 @@ BinaryTree:
     Input: None
     doing: traverse a tree
     output: returns an array of the values, ordered appropriately.
+
+    Get_max: takes no arguments and returns the maximum value of the tree
 ```    
 
 BinarySearchTree:
@@ -53,6 +61,14 @@ contains:
     Argument: value
     Returns: boolean indicating whether or not the value is in the tree at least once.
     
+```
+
+
+## Solution
+<!-- Show how to run your code, and examples of it in action -->
+Make a binary tree then call in the Get_max method, which will return the maximum value of that tree.
+```
+[1,2,5,6,10,100]  Tree will return 100 as the maximum value
 ```
 
 - [x] Create Node class

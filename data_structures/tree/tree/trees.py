@@ -164,6 +164,32 @@ class BinaryTree:
     #         queue.dequeue()
 
     #     print(my_list)
+    def Get_max(self):
+        if self.root is None:
+            raise Exception ("Tree is empty")
+        current = self.root
+        queue = Queue()
+        queue.enqueue(current)
+        max_value = 0
+        while not queue.is_empty():
+
+            current = queue.front
+            if current.value.value > max_value:
+                max_value = current.value.value
+            if current.value.left:
+                queue.enqueue(current.value.left)
+            if current.value.right:
+                queue.enqueue(current.value.right)
+            queue.dequeue() 
+        print(max_value)
+        return max_value
+        # max_value = 0
+        # for max in self.in_order():
+        #     if max > max_value:
+        #         max_value = max
+        # print(max_value)
+        # return max_value
+
         
 class BinarySearchTree(BinaryTree):
     '''
@@ -231,37 +257,37 @@ class BinarySearchTree(BinaryTree):
         # return False
 
 
-# class QNode():
-#     def __init__(self,value):
-#         self.value = value
-#         self.next = None
+class QNode():
+    def __init__(self,value):
+        self.value = value
+        self.next = None
     
-# class Queue:
-#     def __init__(self):
-#         self.front = None
-#         self.rear = None
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
     
-#     def enqueue(self,value):
-#         node = QNode(value)
-#         if self.front is None:
-#             self.front = node
-#             self.rear = node
-#         self.rear.next = node
-#         self.rear = node
+    def enqueue(self,value):
+        node = QNode(value)
+        if self.front is None:
+            self.front = node
+            self.rear = node
+        self.rear.next = node
+        self.rear = node
     
-#     def dequeue(self):
-#         if self.front is None:
-#             raise Exception('Queue is empty')
-#         temp = self.front
-#         self.front = self.front.next
-#         temp.next = None
-#         print(temp.value.value)
-#         return temp.value
+    def dequeue(self):
+        if self.front is None:
+            raise Exception('Queue is empty')
+        temp = self.front
+        self.front = self.front.next
+        temp.next = None
+        # print(temp.value.value)
+        return temp.value
 
-#     def is_empty(self):
-#         if self.front is None:
-#             return True
-#         return False
+    def is_empty(self):
+        if self.front is None:
+            return True
+        return False
 
 
        
@@ -273,9 +299,12 @@ if __name__ == "__main__":
     node4 = Node(4)
     node5 = Node(16)
     node6 = Node(27)
+    node7 = Node(50)
     node1.left = node2
     node1.right = node3
+
     node3.left = node6
+    node3.right = node7
     node2.left = node4
     node2.right = node5
 
@@ -296,7 +325,7 @@ if __name__ == "__main__":
     tree = BinaryTree()
     tree.root = node1
     tree.root.display()
-
+    tree.Get_max()
     # tree.breathfirst()
     
 
@@ -304,12 +333,12 @@ if __name__ == "__main__":
     # [tree2.Add(i) for i in [23,8,42,4,16,27]]
     # tree2.in_order()
     
-    search = BinarySearchTree()
-    search.root = node1
-    search.Add(24)
-    search.root.display()
+    # search = BinarySearchTree()
+    # search.root = node1
+    # search.Add(24)
+    # search.root.display()
 
-    search.Contains(23)
+    # search.Contains(23)
 
     # tree.pre_order_itiration()
     # tree.pre_order()

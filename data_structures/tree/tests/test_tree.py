@@ -1,4 +1,4 @@
-from tree.trees import BinaryTree,BinarySearchTree,Node
+from tree.trees import BinaryTree,BinarySearchTree,Node,breadth_first
 import pytest
         
 def test_tree_init():
@@ -20,7 +20,7 @@ def test_tree_children_nodes(tree):
     assert tree.root.left.value == 2
     assert tree.root.right.value == 10
 
-
+#----------------------------------------- BinarySearchTree Tests -----------------------------------------
 def test_tree_preorder(tree2):
     assert tree2.pre_order() == [23, 8, 4, 16, 42, 27]
 
@@ -36,10 +36,20 @@ def test_tree_contains_true(tree2):
 def test_tree_contains_false(tree2):
     assert tree2.Contains(100) == False
 
-#-------------------------------------------------
+#----------------------------------------- BinaryTree Tests -----------------------------------------
+def test_tree_bi_preorder(tree_bi):
+    assert tree_bi.pre_order() == [23, 8, 4, 16, 42]
 
-def test_tree_get_max_50(bitree):
-    assert bitree.Get_max() == 50
+def test_tree_bi_inorder(tree_bi):
+    assert tree_bi.in_order() == [4, 8, 16, 23, 42]
+
+def test_tree_bi_postorder(tree_bi):
+    assert tree_bi.post_order() == [4, 16, 8, 42, 23]
+
+#-------------------------------------------------Get Max Tests-------------------------------------------------
+
+def test_tree_get_max_50(tree_bi):
+    assert tree_bi.Get_max() == 42
 
 def test_tree_get_max2_5(binary_tree):
     assert binary_tree.Get_max() == 5
@@ -47,6 +57,17 @@ def test_tree_get_max2_5(binary_tree):
 def test_tree_root_fail(binary_tree_root):
     with pytest.raises(Exception):
         assert binary_tree_root.root
+
+#--------------------------------breadth_first_traversal Tests--------------------------------
+
+def test_breadth_first_traversal(tree_bi):
+    assert breadth_first(tree_bi) == [23, 8, 42, 4, 16]
+
+def test_breadth_first_traversal_error(binary_tree_root):
+    with pytest.raises (Exception):
+        assert breadth_first(binary_tree_root)
+
+
 
 @pytest.fixture
 def tree():
@@ -63,26 +84,22 @@ def tree2():
     [tree2.Add(i) for i in [23,8,42,4,16,27]]
     return tree2
 
+
 @pytest.fixture
-def bitree():
+def tree_bi():
+    tree2 = BinaryTree()
     node1 = Node(23)
     node2 = Node(8)
     node3 = Node(42)
     node4 = Node(4)
     node5 = Node(16)
-    node6 = Node(27)
-    node7 = Node(50)
     node1.left = node2
     node1.right = node3
-
-    node3.left = node6
-    node3.right = node7
     node2.left = node4
     node2.right = node5
+    tree2.root = node1
+    return tree2
 
-    bitree = BinaryTree()
-    bitree.root = node1
-    return bitree
 
 @pytest.fixture
 def binary_tree():

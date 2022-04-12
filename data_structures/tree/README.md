@@ -16,16 +16,23 @@ Define a method for each of the depth first traversals:
 - **Add**:Adds a new node with that value in the correct location in the binary search tree
 - **Contains** :boolean indicating whether or not the value is in the tree at least once.
 
+
+
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 - Add -- Big O(log(n)) time and O(1) space using a while loop
 - Contains-- Big O(log(n)) time and O(1) space by calling on of the order methods and search in the return if value is found or not 
 - pre order, in_order post_order -- Big O(n) time and O(n) space using recursion
 - Get_max: Using a queue instance and a loop ---Big O(n) time and O(n) space
+- Breadth_first: Using a queue instance and a loop ---Big O(n) time and O(n) space
+
+
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
 ![Tree-Max](assets/Tree-Max.jpg)
+![BreadthFirst](assets/BreadthFirst.jpg)
+
 
 
 ## API
@@ -63,6 +70,11 @@ contains:
     
 ```
 
+Breath_first function:
+```
+Input: Tree as an arugment 
+Output: Returns a list of the values in the tree in the order they were encountered.
+``` 
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
@@ -70,6 +82,13 @@ Make a binary tree then call in the Get_max method, which will return the maximu
 ```
 [1,2,5,6,10,100]  Tree will return 100 as the maximum value
 ```
+---------------------------------------------------------------------------------
+### Breath_first
+Call the function breath_first(tree) and input a tree as an argument, which will return a list of the nodes values in the order they were encountered.
+
+
+
+
 
 - [x] Create Node class
 - [x] Create BinaryTree class.
@@ -81,3 +100,14 @@ Make a binary tree then call in the Get_max method, which will return the maximu
 - [x] Add method
 - [x] Contains method
  
+
+- [x] Top-level README “Table of Contents” is updated
+- [x] README for this challenge is complete
+- [x] Summary, Description, Approach & Efficiency, Solution
+- [x] Picture of whiteboard
+- [x] Link to code
+- [x] Feature tasks for this challenge are completed
+- [x] Unit tests written and passing
+- [x] “Happy Path” - Expected outcome
+- [x] Expected failure
+- [x] Edge Case (if applicable/obvious)

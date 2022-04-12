@@ -193,7 +193,7 @@ class BinaryTree:
         # print(max_value)
         # return max_value
 
-        
+     
 class BinarySearchTree(BinaryTree):
     '''
     A subclass of BinaryTree used to add values to the tree and search for them
@@ -292,7 +292,31 @@ class Queue:
             return True
         return False
 
+def breadth_first(tree):
+    '''
+    Input: Tree as an arugment 
+    Output: Returns a list of the values in the tree in the order they were encountered. ''' 
+    if tree.root is None:
+        raise Exception ("Tree is empty")
+    queue = Queue()
+    current = tree.root
+    queue.enqueue(current)
+    output = []
+    while not queue.is_empty():
+        current = queue.front
 
+        # print(f'---->  {current.value.value}')
+        if current.value.left:
+            
+            queue.enqueue(current.value.left)
+            
+        if current.value.right:
+            queue.enqueue(current.value.right)
+        output.append(current.value.value)
+        queue.dequeue()
+
+    # print(output)
+    return output   
        
 if __name__ == "__main__":
 
@@ -329,6 +353,7 @@ if __name__ == "__main__":
     tree.root = node1
     tree.root.display()
     tree.Get_max()
+    breadth_first(tree)
     # tree.breathfirst()
     
 

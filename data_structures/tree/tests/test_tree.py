@@ -58,6 +58,7 @@ def test_tree_root_fail(binary_tree_root):
     with pytest.raises(Exception):
         assert binary_tree_root.root
 
+
 #--------------------------------breadth_first_traversal Tests--------------------------------
 
 def test_breadth_first_traversal(tree_bi):
@@ -67,6 +68,11 @@ def test_breadth_first_traversal_error(binary_tree_root):
     with pytest.raises (Exception):
         assert breadth_first(binary_tree_root)
 
+def test_breadth_first_traversal_left(binary_tree_left):
+    assert breadth_first(binary_tree_left) == [5, 3]
+
+def test_breadth_first_traversal_right(binary_tree_right):
+    assert breadth_first(binary_tree_right) == [5, 3, 4, 9]
 
 
 @pytest.fixture
@@ -111,5 +117,22 @@ def binary_tree():
 @pytest.fixture
 def binary_tree_root():
     binary_tree_none = BinaryTree()
-
     return binary_tree_none
+
+@pytest.fixture
+def binary_tree_left():
+    binary_tree_left = BinaryTree()
+    binary_tree_left.root = Node(5)
+    binary_tree_left.root.left = Node(3)
+    return binary_tree_left
+
+@pytest.fixture
+def binary_tree_right():
+    binary_tree_right = BinaryTree()
+    binary_tree_right.root = Node(5)
+    binary_tree_right.root.left = Node(3)
+    binary_tree_right.root.right = Node(4)
+    binary_tree_right.root.left.right = Node(9)
+
+
+    return binary_tree_right

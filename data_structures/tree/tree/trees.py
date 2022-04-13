@@ -315,27 +315,30 @@ def breadth_first(tree):
         output.append(current.value.value)
         queue.dequeue()
 
-    # print(output)
+    print(output)
     return output   
        
 if __name__ == "__main__":
 
-    node1 = Node(23)
-    node2 = Node(8)
-    node3 = Node(42)
-    node4 = Node(4)
-    node5 = Node(16)
-    node6 = Node(27)
-    node7 = Node(50)
-    node1.left = node2
-    node1.right = node3
+    # node1 = Node(23)
+    # node2 = Node(8)
+    # node3 = Node(42)
+    # node4 = Node(4)
+    # node5 = Node(16)
+    # node6 = Node(27)
+    # node7 = Node(50)
+    # node1.left = node2
+    # node1.right = node3
 
-    node3.left = node6
-    node3.right = node7
-    node2.left = node4
-    node2.right = node5
+    # node3.left = node6
+    # node3.right = node7
+    # node2.left = node4
+    # node2.right = node5
 
-
+    binary_tree = BinaryTree()
+    node11= Node(5)
+    binary_tree.root = node11
+    breadth_first(binary_tree)
     # node1 = Node('A')
     # node2 = Node('B')
     # node3 = Node('C')
@@ -349,12 +352,12 @@ if __name__ == "__main__":
 
 
 
-    tree = BinaryTree()
-    tree.root = node1
-    tree.root.display()
-    tree.Get_max()
-    breadth_first(tree)
-    # tree.breathfirst()
+    # tree = BinaryTree()
+    # tree.root = node1
+    # tree.root.display()
+    # tree.Get_max()
+    # breadth_first(tree)
+    
     
 
     # tree2 = BinarySearchTree()

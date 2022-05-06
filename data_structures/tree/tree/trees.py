@@ -186,6 +186,7 @@ class BinaryTree:
             queue.dequeue() 
         print(max_value)
         return max_value
+        
         # max_value = 0
         # for max in self.in_order():
         #     if max > max_value:
@@ -275,14 +276,17 @@ class Queue:
         if self.front is None:
             self.front = node
             self.rear = node
-        self.rear.next = node
-        self.rear = node
+        else:
+            self.rear.next = node
+            self.rear = node
     
     def dequeue(self):
         if self.front is None:
             raise Exception('Queue is empty')
         temp = self.front
+        # print(self.front.value.value)
         self.front = self.front.next
+       
         temp.next = None
         # print(temp.value.value)
         return temp.value
@@ -291,6 +295,18 @@ class Queue:
         if self.front is None:
             return True
         return False
+    def __str__(self):
+        output = ''
+        if not self.front:
+            return 'The queue is empty'
+        else:
+            current = self.front
+            while current:
+                output += f'{current.value.value} --> '
+                current = current.next
+            output += 'Null'
+            return 
+
 
 def breadth_first(tree):
     '''
@@ -307,9 +323,9 @@ def breadth_first(tree):
 
         # print(f'---->  {current.value.value}')
         if current.value.left:
-            
+
             queue.enqueue(current.value.left)
-            
+
         if current.value.right:
             queue.enqueue(current.value.right)
         output.append(current.value.value)
@@ -320,25 +336,29 @@ def breadth_first(tree):
        
 if __name__ == "__main__":
 
-    # node1 = Node(23)
-    # node2 = Node(8)
-    # node3 = Node(42)
-    # node4 = Node(4)
-    # node5 = Node(16)
-    # node6 = Node(27)
-    # node7 = Node(50)
-    # node1.left = node2
-    # node1.right = node3
+    node1 = Node(23)
+    node2 = Node(8)
+    node3 = Node(42)
+    node4 = Node(4)
+    node5 = Node(16)
+    node6 = Node(27)
+    node7 = Node(50)
+    node1.left = node2
+    node1.right = node3
 
-    # node3.left = node6
-    # node3.right = node7
-    # node2.left = node4
-    # node2.right = node5
+    node3.left = node6
+    node3.right = node7
+    node2.left = node4
+    node2.right = node5
 
     binary_tree = BinaryTree()
     node11= Node(5)
     binary_tree.root = node11
+    node11.left = node1
+
     breadth_first(binary_tree)
+    binary_tree.root.display()
+
     # node1 = Node('A')
     # node2 = Node('B')
     # node3 = Node('C')

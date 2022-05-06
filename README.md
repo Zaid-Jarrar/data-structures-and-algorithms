@@ -5,3 +5,5 @@
 - [Array Binary Search](class03/challenge03-README.md)
 - [Linked Lists](data_structures/linked_list/README.md)
 - [Stack and Queue](data_structures/stack-and-queue/README.md)
+- [Trees](data_structures/tree/README.md)
+  

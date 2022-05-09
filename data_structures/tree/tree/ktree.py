@@ -1,4 +1,6 @@
-    
+import copy
+from tree.trees import BinaryTree,Node
+
 class Node():
     def __init__(self,value):
         self.value = value
@@ -52,6 +54,10 @@ class Queue:
 
 
 class KNode:
+    """
+    Create a node that takes value as argument and can have many children for the k-arytree
+
+    """
     def __init__(self,value):
         self.value = value
         self.children = []
@@ -59,27 +65,7 @@ class KNode:
 class KTree():
     def __init__(self):
         self.root = None
-    # def breadth_first(self):
-    #     if self.root is None:
-    #         raise Exception('Tree is empty')
-    #     current = self.root
-    #     output = []
-    #     queue = Queue()       
-    #     queue.enqueue(current)
-    #     while not queue.is_empty():
-    #         print(queue.front.value.value + '    BEFORE DEQ')
-    #         current = queue.dequeue()
-    #         if queue.__sizeof__  :
-    #             print(queue.__sizeof__())
-    #             print('it is bigger')
-    #         print(f'{current.value}     CURRENT VALUE')
-    #         # print(queue.front.value.value + ' AFTER DEQ')
-    #         output.append(current.value)
-    #         for child in current.children:
-    #             queue.enqueue(child)
-    #     print(queue)
-    #     print(output)
-    #     return output
+
     def breadthFirst(self):
             '''
             A method to traverse the k-ary-tree elements (breadthFirst)
@@ -87,7 +73,8 @@ class KTree():
             output: print a list of the value of each node
             '''
             current = self.root
-            if current is None: return 'The tree is empty'
+            if current is None: 
+                return 'The tree is empty'
             values = []
             queue = Queue()
             queue.enqueue(current)
@@ -110,6 +97,99 @@ class KTree():
         node = KNode(value)
         parent.children.append(node)
 
+        return node
+
+
+
+
+
+def tree_fizz_buzz(k_arytree):
+
+    """
+    a function that takes in a k-ary tree and returns a new k-ary tree with the following rules:
+    1. if the value of the node is divisible by 3, replace the value with "Fizz"
+    2. if the value of the node is divisible by 5, replace the value with "Buzz"
+    3. if the value of the node is divisible by 3 and 5, replace the value with "FizzBuzz"
+    4. otherwise, leave the value as is but as a string
+
+    input: k-ary tree
+    return: new k-ary tree
+
+    """
+    # result = []
+    modified_k_arytree = KTree()
+    
+    if k_arytree.root is None:
+        return 'The tree is empty'
+    
+    def _walk(current,parent =None):
+        if type(current.value) is not int:
+            raise Exception('Current nodes values must be integers') 
+
+        if current.value % 3 == 0 and current.value % 5 == 0:
+            output = 'FizzBuzz'
+
+        elif current.value % 3 == 0:
+            output = 'Fizz'
+        elif current.value % 5 == 0:
+            output = 'Buzz'
+        else:
+            output = str(current.value)
+        
+            
+        node = KNode(output)
+        if parent is not None:
+            parent.children.append(node)
+
+        if current.children:
+            for child in current.children:
+                _walk(child,node)     
+        
+        if parent is None:
+            return node
+
+    modified_k_arytree.root= _walk(k_arytree.root)
+
+    print(modified_k_arytree.root.children[0].value)
+    # just for viewing purposes
+    # queue = Queue()
+    # queue.enqueue(modified_k_arytree.root)
+    # while not queue.is_empty():
+    #     current = queue.dequeue()
+    #     result.append(current.value)
+    #     for child in current.children:
+    #         queue.enqueue(child)
+    # print(result)
+    # #-----------------------------
+    return modified_k_arytree
+
+    
+
+if __name__ == '__main__':
+    node1,node2,node3,node4,node5,node6 = [KNode(i) for i in [3,5,6,9,15,2]]
+    # node1,node2,node3,node4,node5,node6 = [KNode(i) for i in ['3','5','6','9','15','2']]
+
+    node1.children = [node2,node3]
+    node2.children = [node4,node5]
+    node3.children = [node6]
+    tree = KTree()
+    tree.root = node1
+    tree.breadthFirst()
+    tree_fizz_buzz(tree)
+
+
+
+    # ktree = KTree()
+    # ktree.add_child(node1)
+    # # ktree.root.children.append = Node(1), Node(2)
+    # lvl1 = Node(1)
+    # lvl2 = Node(2)
+    # ktree.add_child(2)
+    # ktree.add_child(3)
+    # print(ktree.queue)
+    
+
+    # --------------------------------------------------------
     # def __str__(self):
     #     '''
     #     A method to print the k-ary-tree
@@ -144,33 +224,40 @@ class KTree():
     #             self.queue.enqueue(current.children[-1])
     #             print(self.queue)
     #             # self.queue.enqueue(current.children[-1])
+# def tree_fizz_buzz(k_arytree):
 
+#     if k_arytree.root is None:
+#         raise Exception ("Tree is empty")
+
+#     # modified_k_arytree =  k_arytree.breadthFirst()
+#     modified_k_arytree = KTree()
+#     modified_k_arytree.root = copy.deepcopy(k_arytree.root)
+#     output = []
+#     queue = Queue()
+#     queue.enqueue(modified_k_arytree.root)
+#     # queue.enqueue(k_arytree.root)
+#     while not queue.is_empty():
+#         current = queue.dequeue()
+
+#         if current.value % 3 == 0 and current.value % 5 == 0:
+            
             
 
-            
+#             current.value = "FizzBuzz"
 
+#         elif current.value % 3 == 0:
+#             current.value = "Fizz"
+#         elif current.value % 5 == 0:
+#             current.value = "Buzz"
+#         else:
+#             current.value = str(current.value)
+#         output.append(current.value)
+#         for child in current.children:
+#             queue.enqueue(child)
+#     print(output)
 
-if __name__ == '__main__':
-
-    node1,node2,node3,node4,node5,node6 = [KNode(i) for i in ['A','B','C','D','E','F']]
-    node1.children = [node2,node3]
-    node2.children = [node4,node5]
-    node3.children = [node6]
-    tree = KTree()
-    tree.root = node1
-    tree.breadthFirst()
-
-    tree.add_child('G',node1)
-    tree.breadthFirst()
-
-
-    # ktree = KTree()
-    # ktree.add_child(node1)
-    # # ktree.root.children.append = Node(1), Node(2)
-    # lvl1 = Node(1)
-    # lvl2 = Node(2)
-    # ktree.add_child(2)
-    # ktree.add_child(3)
-    # print(ktree.queue)
+#     k_arytree.breadthFirst()
+#     modified_k_arytree.breadthFirst()
     
-    
+
+#     return modified_k_arytree

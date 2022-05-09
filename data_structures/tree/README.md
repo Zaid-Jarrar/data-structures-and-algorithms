@@ -32,7 +32,7 @@ Define a method for each of the depth first traversals:
 <!-- Embedded whiteboard image -->
 ![Tree-Max](assets/Tree-Max.jpg)
 ![BreadthFirst](assets/BreadthFirst.jpg)
-
+![K-AryTree-FizzBuzz](assets/K-aryTree.jpg)
 
 
 ## API
@@ -75,6 +75,53 @@ Breath_first function:
 Input: Tree as an arugment 
 Output: Returns a list of the values in the tree in the order they were encountered.
 ``` 
+
+-------------------------------------------------------------------
+
+## **K-aryTree**
+
+class KNode: 
+    creates a node for K-aryTree with many children
+
+class Ktree: 
+    a K-aryTree class, where every node can have more than just 2 children
+
+function tree_fizz_buzz:
+    takes a k-ary tree as an argument and returns a new k-ary tree 
+
+### Challenge Summary
+<!-- Description of the challenge -->
+Conduct “FizzBuzz” on a k-ary tree while traversing through it to create a new tree.
+
+Set the values of each of the new nodes depending on the corresponding node value in the source tree.
+### Whiteboard Process
+<!-- Embedded whiteboard image -->
+![K-AryTree-FizzBuzz](assets/K-aryTree.jpg)
+
+### Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+Big O of both time and space is n because of using recursion and creating a new k-arytree
+
+### Solution
+<!-- Show how to run your code, and examples of it in action -->
+```
+tree = KTree()
+    node1,node2,node3,node4,node5,node6 = [KNode(i) for i in [3,5,6,9,15,2]]
+    tree.root = node1
+    tree.root.children.append(node2)
+    tree.root.children.append(node3)
+    tree.root.children.append(node4)
+    tree.root.children[0].children.append(node5)
+    tree.root.children[0].children.append(node6)
+    tree_fizz_buzz(tree)
+
+    result of new tree will be ['Fizz','Buzz','Fizz','Fizz','FizzBuzz','2']
+
+
+```
+
+---------------------------------------------------------------------
+
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->

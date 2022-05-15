@@ -26,27 +26,27 @@ def insertion_sort(arr):
             arr[j+1] = temp  
     except Exception:
         return 'Array elements must be integers'
-        
-    return arr
-
-def reverse_sorted(arr):
-    """
-    Reverse sorted algorithm function takes in an array of integers as an argument:
-    1. Start at the last element in the array
-    2. Compare the current element with the element before it
-    3. If the current element is greater than the element before it, swap them
-    4. Repeat until the array is sorted
-
-    """
-    for i in range(1,len(arr)):
-        j = i - 1
-        temp = arr[i]
-        while j >=0 and temp > arr[j]:
-            arr[j+1] = arr[j]
-            j -= 1
-        arr[j+1] = temp
 
     return arr
+
+# def reverse_sorted(arr):
+#     """
+#     Reverse sorted algorithm function takes in an array of integers as an argument:
+#     1. Start at the last element in the array
+#     2. Compare the current element with the element before it
+#     3. If the current element is greater than the element before it, swap them
+#     4. Repeat until the array is sorted
+
+#     """
+#     for i in range(1,len(arr)):
+#         j = i - 1
+#         temp = arr[i]
+#         while j >=0 and temp > arr[j]:
+#             arr[j+1] = arr[j]
+#             j -= 1
+#         arr[j+1] = temp
+
+#     return arr
 
 
 

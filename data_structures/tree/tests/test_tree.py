@@ -90,6 +90,8 @@ def test_fizz_buzz_tree(ktree):
     assert actual.root.children[0].children[0].value == "FizzBuzz"
     assert actual.root.children[0].children[1].value == "2"
     assert ktree.root.value == 3
+    assert actual.breadthFirst() == ['Fizz', 'Buzz', 'Fizz', 'Fizz', 'FizzBuzz', '2']
+    assert ktree.breadthFirst() == [3, 5, 6, 9, 15, 2]
 
 def test_fizz_buzz_tree_empty():
     tree = KTree()

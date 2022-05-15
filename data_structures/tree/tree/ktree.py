@@ -123,9 +123,18 @@ def tree_fizz_buzz(k_arytree):
         return 'The tree is empty'
     
     def _walk(current,parent =None):
+        '''
+        A function to walk the k-ary tree and modify the values
+        input: current, parent
+        current: current node taken from the original tree to be modified 
+        parent: parent node of the current node, but the parent node is already modified ie Fizz, Buzz, FizzBuzz 
+        (3,"Fizz")
+        output: node which is the root of the modified k-ary tree
+        '''
+        # Here we make sure what is given is an integer only
         if type(current.value) is not int:
             raise Exception('Current nodes values must be integers') 
-
+        # Here we modify the value of the current node ie 3 >> Fizz
         if current.value % 3 == 0 and current.value % 5 == 0:
             output = 'FizzBuzz'
 
@@ -136,18 +145,20 @@ def tree_fizz_buzz(k_arytree):
         else:
             output = str(current.value)
         
-            
+        # After the value is modified, we create a new node with the modified value    
         node = KNode(output)
+        # If the parent node is not None, we add the new node to the parent node (if Fizz is node and parent of it was Buzz then add fizz into Buzz's list )
         if parent is not None:
             parent.children.append(node)
-
+        # Here we check if the current node not the new node has children and we call the function again given both the child as the new current and the new node as parent
+        # ie walk(6,'Fizz')
         if current.children:
             for child in current.children:
                 _walk(child,node)     
-        
+        # At the end of the function we return the node which is the soon to be root of the modified k-ary tree 
         if parent is None:
             return node
-
+    # Here we pass in that soon to be root in the modified k-ary tree and becomes a full tree
     modified_k_arytree.root= _walk(k_arytree.root)
 
     print(modified_k_arytree.root.children[0].value)

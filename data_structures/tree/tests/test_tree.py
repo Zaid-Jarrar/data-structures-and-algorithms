@@ -1,4 +1,5 @@
 from tree.trees import BinaryTree,BinarySearchTree,Node,breadth_first
+from tree.ktree import KTree,tree_fizz_buzz,KNode
 import pytest
         
 def test_tree_init():
@@ -73,6 +74,51 @@ def test_breadth_first_traversal_left(binary_tree_left):
 
 def test_breadth_first_traversal_right(binary_tree_right):
     assert breadth_first(binary_tree_right) == [5, 3, 4, 9]
+
+def test_breadth_first_traversal_root(binary_tree):
+    assert breadth_first(binary_tree) == [5]
+
+
+#---------------------------------k-aryTree Tests--------------------------------
+
+def test_fizz_buzz_tree(ktree):
+    actual = tree_fizz_buzz(ktree)
+    assert actual.root.value == "Fizz"
+    assert actual.root.children[0].value == "Buzz"
+    assert actual.root.children[1].value == "Fizz"
+    assert actual.root.children[2].value == "Fizz"
+    assert actual.root.children[0].children[0].value == "FizzBuzz"
+    assert actual.root.children[0].children[1].value == "2"
+    assert ktree.root.value == 3
+    assert actual.breadthFirst() == ['Fizz', 'Buzz', 'Fizz', 'Fizz', 'FizzBuzz', '2']
+    assert ktree.breadthFirst() == [3, 5, 6, 9, 15, 2]
+
+def test_fizz_buzz_tree_empty():
+    tree = KTree()
+    actual = tree_fizz_buzz(tree)
+    assert actual == 'The tree is empty'
+        
+def test_fizz_buzz_tree_error():
+    with pytest.raises(Exception):
+        tree = KTree()
+        tree.root = KNode(1)
+        tree.root.children = [KNode("2"),KNode("3")]
+        tree_fizz_buzz(tree)
+
+        
+
+@pytest.fixture
+def ktree():
+    tree = KTree()
+    node1,node2,node3,node4,node5,node6 = [KNode(i) for i in [3,5,6,9,15,2]]
+    tree.root = node1
+    tree.root.children.append(node2)
+    tree.root.children.append(node3)
+    tree.root.children.append(node4)
+    tree.root.children[0].children.append(node5)
+    tree.root.children[0].children.append(node6)
+    return tree
+    
 
 
 @pytest.fixture

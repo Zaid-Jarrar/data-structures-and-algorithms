@@ -77,6 +77,7 @@ class BinaryTree:
     '''
     def __init__(self):
         self.root = None
+        self.counter = 0
 
     def pre_order(self):
         """
@@ -142,6 +143,67 @@ class BinaryTree:
         _walk(self.root)
         print(node_array)
         return node_array
+    
+    # def compare_directory_structures(self,tree1,tree2):
+    #     # each folder must have either one or two files/folders as children 
+    #     # only files dont have children so they are leaf nodes
+    #     if tree1.root and tree2.root is None:
+    #         raise Exception('Trees are empty')
+    #     tree1_files_num = 0
+    #     tree2_files_num = 0
+    #     for structure in tree1.post_order():
+
+    #         if structure.lower() != 'folder':
+    #             tree1_files_num += 1
+    #     for structure in tree2.post_order():
+    #         if structure.lower() != 'folder':
+    #             tree2_files_num += 1
+    #     if tree1_files_num == tree2_files_num:
+    #         print(True)
+    #         return True
+    #     print(False)
+    #     return False
+    # make this as a function as well 
+    def compare_directory_structures(self,tree1,tree2):
+        """
+        a method that compares between two directory structures and returns True if the number of files match for both
+        input: directory structure, directory structure
+        output: Boolean value
+    
+        """
+        if tree1.root and tree2.root is None:
+            raise Exception('Trees are empty')
+        # output = []
+        
+        def _walk(node):
+            if node.left:
+                _walk(node.left)
+            if node.right:
+                _walk(node.right)
+            if not node.right and not node.left:              
+                # output.append(1)
+                self.counter += 1
+                
+        _walk(tree1.root)
+        tree1_file_num = self.counter
+        self.counter = 0
+        print(tree1_file_num)
+        # num1 = len(output)
+        # print(output)
+        output = []
+        _walk(tree2.root)
+        # num2 = len(output) 
+        tree2_file_num = self.counter 
+        print(tree2_file_num)  
+        # print(output)
+        if tree2_file_num == tree1_file_num:
+            print(True)
+            return True
+        print(False)
+        return False
+
+
+
 
     # def breathfirst(self): 
     #     if self.root is None:
@@ -253,6 +315,45 @@ class BinarySearchTree(BinaryTree):
                     # print(False)
                     return False
             
+    # def odd_number_sum(self):
+    #     '''
+    #     Input: None
+    #     Output: Returns the sum of all the odd numbers in the tree
+    #     '''
+    #     if self.root is None:
+    #         raise Exception ("Tree is empty")
+    #     sum = 0
+    #     for value in self.pre_order():
+    #         if value % 2 == 1:
+    #             sum += int(value)
+    #     print(sum)
+    #     return sum
+
+    def odd_number_sum(self):
+        if self.root is None:
+            raise Exception('Tree is empty')
+        sum = 0
+        output = []
+        def _walk(node):
+            output.append(node.value)
+            # you can do this instead of the for but you need to make the sum an attribute of the class and not the function
+            # if node.value % 2 != 0:
+            #     sum += node.value
+            if node.left:
+                _walk(node.left)
+            if node.right:
+                _walk(node.right)
+        _walk(self.root)
+        print(output)
+        for value in output:
+            if value % 2 == 1:
+                sum += value
+        print(sum)
+        return sum
+
+        
+
+
         # OR
         # if value in self.in_order():
         #     print(True)
@@ -333,6 +434,8 @@ def breadth_first(tree):
 
     print(output)
     return output   
+
+
        
 if __name__ == "__main__":
 
@@ -351,13 +454,19 @@ if __name__ == "__main__":
     node2.left = node4
     node2.right = node5
 
-    binary_tree = BinaryTree()
-    node11= Node(5)
-    binary_tree.root = node11
-    node11.left = node1
+    # binary_tree = BinaryTree()
+    # node11= Node(5)
+    # binary_tree.root = node11
+    # node11.left = node1
 
-    breadth_first(binary_tree)
-    binary_tree.root.display()
+    # breadth_first(binary_tree)
+    # binary_tree.root.display()
+
+    sum = BinarySearchTree()
+    sum.root = node1
+    sum.root.display()
+    sum.odd_number_sum()
+
 
     # node1 = Node('A')
     # node2 = Node('B')
@@ -365,11 +474,26 @@ if __name__ == "__main__":
     # node4 = Node('D')
     # # node5 = Node('E')
     # node6 = Node('F')
-    # node1,node2,node3,node4,node5,node6 = [Node(i) for i in ['A','B','C','D','E','F']]
-
+    node1,node2,node3,node5 = [Node(i) for i in ['Folder','Folder','.py','.txt']]
+    node7,node8,node9,node10,node11,node12 = [Node(i) for i in ['Folder','Folder','Folder','.js','.txt','.txt']]
     # node1.left,node1.right,node3.left,node2.left,node2.right = node2,node3,node6,node4,node5
+    tree1 = BinaryTree()
+    tree1.root = node1
+    node1.left = node2
+    node1.right = node3
+    
+    node2.right = node5
+    # node3.left = node6
 
+    tree2 = BinaryTree()
+    tree2.root = node7
+    node7.left = node8
+    node7.right = node9
+    node8.left = node10
+    node8.right = node11
+    node9.left = node12
 
+    tree1.compare_directory_structures(tree1,tree2)
 
 
     # tree = BinaryTree()

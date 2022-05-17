@@ -24,6 +24,8 @@ Sample Array:
 [8,4,23,42,16,15]
 ```
 
+
+
 **First step:** 
 ```
 we enter the for loop then we check if the assign the values of j and temp,

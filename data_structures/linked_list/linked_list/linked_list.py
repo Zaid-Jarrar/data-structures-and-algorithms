@@ -256,8 +256,8 @@ if __name__ == "__main__":
 
 # both empty and either is empty and one has one node and the 
 
-    # ll.kth_from_end(0)
-    # print(ll)
+    ll.kth_from_end(0)
+    print(ll)
 
     ll2 = Linked_list()
     first = Node("1")  

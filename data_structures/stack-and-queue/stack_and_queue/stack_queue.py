@@ -86,7 +86,7 @@ class Queue:
         self.front = node
         self.rear = node
 
-    def enqueue(self,value):
+    def enqueue(self,value):        
         node = Node(value) 
         if self.front is None:
             self.front = node
@@ -343,7 +343,7 @@ class MaxStack():
         return f'{self.stack} // {self.max_stack}'
 
     def get_max(self):
-        return self.max_stack.top.value
+        return f'The Max value is {self.max_stack.top.value}'
 
     def push(self, value):
         self.stack.push(value)
@@ -374,23 +374,24 @@ def DuckDuckGoose(strings,k):
 
 
 if __name__ == '__main__':
+# -----------------DuckDuckGose------------------------------
+    # DuckDuckGoose(['4','3','1'],2)
+# -----------------Max Stack------------------------------
 
-    DuckDuckGoose(['4','3','1'],2)
+    # max = MaxStack()
+    # max.push(1)
+    # max.push(2)
+    # max.push(3)
+    # max.push(1)
+    # max.push(6)
+    # max.push(4)
 
-    max = MaxStack()
-    max.push(1)
-    max.push(2)
-    max.push(3)
-    max.push(1)
-    max.push(6)
-    max.push(4)
-
-    print(max)
-    max.pop()
-    print(max.get_max())
-    print(max)
-    max.pop()
-    print(max.get_max())
+    # print(max)
+    # max.pop()
+    # print(max.get_max())
+    # print(max)
+    # max.pop()
+    # print(max.get_max())
 
     # print('-----------------------------')
 
@@ -405,13 +406,27 @@ if __name__ == '__main__':
     
     # print(max)
  
+# -----------------Animal Shelter------------------------------
 
 
-    # animal = AnimalShelter()
-    # # # [animal.enqueue(i) for i in [Dog(),Cat(),Cat()]]
+    animal = AnimalShelter()
+    [animal.enqueue(i) for i in [Dog(),Cat(),Cat()]]
     # animal.enqueue(Dog())
+    
 
 
+    # animal.enqueue(Dog())
+    # animal.enqueue(Cat())
+    # animal.enqueue(Dog())
+    # animal.enqueue(Cat())
+
+    print(animal)
+    # print(animal.dequeue('lizard'))
+    print(animal.dequeue('cat'))
+    # print(animal.dequeue('dog'))
+
+
+# -----------------PsuedoQueue------------------------------
     # pseudo = PseudoQueue()
     # pseudo.enqueue('1')
     # pseudo.enqueue('2')
@@ -420,15 +435,6 @@ if __name__ == '__main__':
     # pseudo.enqueue('4')
     # print(pseudo.dequeue())
 
-    # animal.enqueue(Dog())
-    # animal.enqueue(Cat())
-    # animal.enqueue(Dog())
-    # animal.enqueue(Cat())
-
-    # print(animal)
-    # # print(animal.dequeue('lizard'))
-    # print(animal.dequeue('cat'))
-    # print(animal.dequeue('dog'))
 
     # pseudo = PseudoQueue()
     # pseudo.front = Node(1)
@@ -448,21 +454,6 @@ if __name__ == '__main__':
     # queue.dequeue()
     # print(queue.peek())
     
-
-
-
-    validate_brackets('12[]')
-
-    # print(animal.shelter.peek())
-  
-    
-    # print(animal.dequeue('dog'))
-    
-    # stack = Stack()
-    # stack.push('zaid')
-    # stack.push('Jarrar')
-    # stack.peek()
-
     # queue = PseudoQueue()
     # queue.enqueue('1')
     # queue.enqueue('2')
@@ -474,6 +465,18 @@ if __name__ == '__main__':
     # pseudo = PseudoQueue()
     # pseudo.stack1.peek()  
     # print(pseudo.peek())
+
+
+    validate_brackets('12[]')
+
+
+    
+    # stack = Stack()
+    # stack.push('zaid')
+    # stack.push('Jarrar')
+    # stack.peek()
+
+
     
 
 

@@ -40,10 +40,9 @@ def test_hash_collision():
     hash = HashTable()
     hash.set("cat", "meow")
     hash.set("act", "homework")
-
-    actual= hash.get("cat")
-    expected = "meow"
-    assert actual == expected
+    assert hash.table[808] == [{'cat': 'meow'}, {'act': 'homework'}]
+    assert hash.get("cat") == "meow"
+    assert hash.get("act") == "homework"
 
 def test_hash_hashkey():
     hash = HashTable()

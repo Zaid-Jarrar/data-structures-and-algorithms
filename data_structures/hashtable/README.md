@@ -23,9 +23,13 @@ but wit a perfect hash table it would be a O(1)
     """
     HashTable is a class that inherits from object and has the following methods:
 
-    hash(self,key): hash function that takes a key and returns an index in the hashtable
-    set(self,key,value): sets a key and value in the hashtable
-    get(self,key): gets the value of a key
-    contains(self,key): checks if a key is in the hashtable
-    keys(self): returns a list of all keys in the hashtable
+    hash(self,key): hash function that takes a key and returns an index in the hashtable. Time complixity is O(n) and space complexity is O(1)
+
+    set(self,key,value): sets a key and value in the hashtable, O(n) space complexity and O(1) time complexity if key index doesnt exist and O(n) time and space complexity is O(n) if key index does exist.
+
+    get(self,key): gets the value of a key, O(n) time complexity and O(1) space complexity
+
+    contains(self,key): checks if a key is in the hashtable, O(n) time complexity and O(1) space complexity
+
+    keys(self): returns a list of all keys in the hashtable, O(n^3) time complexity and O(n) space complexity
     """

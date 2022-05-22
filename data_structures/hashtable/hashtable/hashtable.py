@@ -87,58 +87,74 @@ if __name__ == '__main__':
 
 
 
-    # print(hash.table[238])
-    # dict = [{'dog':"woof"}, {"ogD":"meow"}]
-    # for dic in dict:
-    #     if 'dog' in dic.keys():
-    #         dic['dog'] = 'yes'
-    #     print(dic)
-            # print('yes')
-        # print(dic.keys())
-        # print(dic['dog'])
-    # def set(self,key,value):
-    #     index = self.hash(key)
-    #     if not self.table[index]:
-    #         self.table[index] = {f"{key}": f"{value}"}
-    #     else:
-    #         self.table[index][key] = value
+# class HashTable(object):
+#     def __init__(self, size=1024):
+#         self.size = size
+#         self.table = [None] * size
+#         # self.table = [LinkedList()]*size
 
-    # def get(self,key):
-    #     index = self.hash(key)
-    #     return self.table[index][key]
+#     def hash(self, key):
+#         """
+#         A method to hash the key according to ASCII size
+#         Input: key
+#         Output: hash value
+#         """
+#         sum_of_ascii = 0
+#         for ch in key:
+#             ch_ascii = ord(ch)  # 86
+#             sum_of_ascii += ch_ascii
+#         hashed_key = (sum_of_ascii * 19) % self.size
+#         return hashed_key
+
+#     def set(self, key, value):
+#         """
+#         A method to hash the key, then set the key and value pair in the table, handling collisions as needed
+#         Input: key, value
+#         Output: othing
+#         """
+#         idx = self.hash(key)
+#         if not self.table[idx]:
+#             self.table[idx] = [[key, value]]  # LinkedList().add({key, value})
+#         else:
+#             self.table[idx].append([key, value])
+
+#     def get(self, key):
+#         """
+#         A method to retrieve the vlaue of a key
+#         Input: key
+#         Output: value
+#         """
+#         return self.table[self.hash(key)]
+
+#     def keys(self):
+#         """
+#         A method to retrieve the keys of a hash table
+#         Input: nothing
+#         Output: list of keys
+#         """
+#         # return [key[0][0] for key in self.table if key is not None]
+#         keys = []
+#         for bucket in self.table:
+#             if bucket is not None:
+#                 keys.append(bucket[0][0])
+#         return keys
 
 
-    # def contains(self,key):
-    #     index = self.hash(key)
-    #     if not self.table[index]:
-    #         return False    
-    #     if key in hash.table[index]:
-    #         return True
-    #     return False
-     
-    # def keys(self):
-    #     keys_collection = []
-    #     for index in self.table:
-    #         if index:
-    #             keys_collection += index.keys()
-    #     return keys_collection
 
-    # print(hash.hash('Cat'))
-    # print(hash.hash('aCt'))
+#     def contains(self, key):
+#         """
+#         A method to check if the key is already in the hash table
+#         Input: key
+#         Output: boolean
+#         """
+#         if self.get(key) is not None:
+#             return True
+#         else:
+#             return False
 
-    # hash.set('Cat', 'meow')
-    # hash.set('aCt', 'wolf')
-    # # hash.set('aCt', 'dog')
-
-
-    # # for i in enumerate(hash.table):
-    # #     print(i)
-    # print(hash.get('Cat'))
-    # # print(hash.get('aCt'))
-
-
-    # print(hash.table[200])
-    # print(hash.contains('aCtt'))
-    # # a= hash.table[200].keys()
-    # # print(list(a))
-    # print(hash.keys())
+#     def __str__(self):
+#         output = ""
+#         for bucket in self.table:
+#             if bucket is not None:
+#                 output += f"{bucket} \n"
+#         return output

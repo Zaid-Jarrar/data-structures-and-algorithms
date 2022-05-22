@@ -33,3 +33,28 @@ but wit a perfect hash table it would be a O(1)
 
     keys(self): returns a list of all keys in the hashtable, O(n^3) time complexity and O(n) space complexity
     """
+
+----------------------------------------------------------------------------------------------------------------------
+
+# Challenge Summary
+<!-- Description of the challenge -->
+Write a function called repeated word that finds the first word to occur more than once in a string
+Arguments: string
+Return: string
+
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+![repeated-word](assets/Repeated word function.jpg)
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+Time -- Big O(n)
+Space -- Big O(1)
+## Solution
+<!-- Show how to run your code, and examples of it in action -->
+```
+def test_repeated_word():
+    text = "Once upon a time, there was a brave princess who..."
+    actual = repeated_word(text)
+    expected = "a"
+    assert actual == expected
+```

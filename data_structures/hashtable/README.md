@@ -58,3 +58,35 @@ def test_repeated_word():
     expected = "a"
     assert actual == expected
 ```
+
+--------------------------------------------------------------------------------
+
+# Hashmap LEFT JOIN
+<!-- Short summary or background information -->
+Hashmap left join is a way to join two hashmaps together.
+where one hashmap is the left and the other is the right.
+right hashmap is the one that is being joined to the left hashmap.
+the result of the fusion will be a new hashmap with the keys from the left hashmap.
+
+## Challenge
+<!-- Description of the challenge -->
+Write a function that LEFT JOINs two hashmaps into a single data structure.
+
+Write a function called left join
+Arguments: two hash maps
+The first parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+The second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+Return: The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+Time Big O of (n) because of the possibility of collision.
+Space Big O of (n) because of creating a new hashmap 
+
+## Solution
+<!-- Embedded whiteboard image -->
+![left-join](assets/Left-join-hashtable.jpg)
+
+- Code: [Left-Join](hashtable/hashtable_leftjoin.py)
+
+

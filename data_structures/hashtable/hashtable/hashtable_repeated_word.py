@@ -33,12 +33,15 @@ def repeated_word(text):
             lower_word = word.lower()
             if ord(lower_word) in range(ord('a'), ord('z') + 1):
                 words += lower_word
+            # the purpose of len(words) is make sure that if the function enters the first if statement, it wont enter the second if statement
+            # and add it to the hashmap(Which might otherwise add a letter not the whole word)
             elif len(words):
                 if hashmap.contains(words):
                     return words
                 else:
                     hashmap.set(words, None)
                     words = ''
+       
         if len(words) and hashmap.contains(words):
             return words
         return None
@@ -48,6 +51,6 @@ def repeated_word(text):
           
 
 if __name__ == '__main__':
-    text = "it it"
+    text = "It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."
     print(repeated_word(text))
     # print(repeated_word(12))

@@ -10,8 +10,8 @@ output: sorted array.
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-Time complixity is O(n) because we are using recursion and going through the .
-Space complixity is O(1) because we are only using a single variable.
+Time complixity is O(n^2) because we are using recursion and going through the .
+Space complixity is O(n) because we are only using a single variable.
 
 
 ## Solution

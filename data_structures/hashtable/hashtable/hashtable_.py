@@ -81,9 +81,9 @@ if __name__ == '__main__':
     # print(hash.get('cat'))
     print(hash.contains('atc'))
 
-    print(hash.table[238])
-    # for i in enumerate(hash.table[238]):
-    #     print(i)
+    # print(hash.table[238])
+    for i in enumerate(hash.table):
+        print(i)
 
 
 

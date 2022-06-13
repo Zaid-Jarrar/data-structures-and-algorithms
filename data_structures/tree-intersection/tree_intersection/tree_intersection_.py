@@ -23,23 +23,25 @@ def tree_intersection(bt1, bt2):
         if root.right and root2.right:
             tree_traversal(root.right,root2.right)
     tree_traversal(bt1.root,bt2.root)
+    hashtable.__table_
     return set(hashtable.keys())
 
 
-if __name__ == '__main__':
-    pass
-    # Bt1 = BinaryTree()
-    # Bt1.root = Node(12)
-    # Bt1.root.right = Node(9)
-    # Bt1.root.left = Node(2)
-    # Bt1.root.left.left = Node(0)
-    # Bt1.root.right.left = Node(10)
 
-    # Bt2 = BinaryTree()
-    # Bt2.root = Node(12)
-    # Bt2.root.right = Node(2)
-    # Bt2.root.left = Node(2)
-    # Bt2.root.left.left = Node(18)
+if __name__ == '__main__':
+    # pass
+    Bt1 = BinaryTree()
+    Bt1.root = Node(12)
+    Bt1.root.right = Node(9)
+    Bt1.root.left = Node(2)
+    Bt1.root.left.left = Node(0)
+    Bt1.root.right.left = Node(10)
+
+    Bt2 = BinaryTree()
+    Bt2.root = Node(12)
+    Bt2.root.right = Node(2)
+    Bt2.root.left = Node(2)
+    Bt2.root.left.left = Node(18)
 
     # Bt3 = BinaryTree()
     # Bt3.root = Node(150)
@@ -72,8 +74,9 @@ if __name__ == '__main__':
     # node7.right = node5
     
 
-    # print(tree_intersection(Bt1, Bt2))
-    # print(tree_intersection(Bt1, Bt2))
+    print(tree_intersection(Bt1, Bt2))
+    print(tree_intersection(Bt1, Bt2))
+    print(tree_intersection(Bt1, Bt2))
 # def tree_intersection(bt1, bt2):
 
 #     """

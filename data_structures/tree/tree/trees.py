@@ -351,15 +351,24 @@ class BinarySearchTree(BinaryTree):
         print(sum)
         return sum
 
-        
+    # fully working
+    def get_2ndmax(self):
+        current = self.root
+        if current.right is None and current.left is None:
+            return f'There is only {current.value} in this tree'
 
+        def get_2nd_max(node):
+            if node.left is None and node.right is None:
+                return node.value
 
-        # OR
-        # if value in self.in_order():
-        #     print(True)
-        #     return True
-        # print(False)        
-        # return False
+            if node.right is None and node.left is not None:
+                return get_2nd_max(node.left)
+
+            if node.right != None and node.right.left == None and node.right.right == None:
+                return node.value
+
+            return get_2nd_max(node.right)
+        return get_2nd_max(current)
 
 
 class QNode():
@@ -435,81 +444,151 @@ def breadth_first(tree):
     print(output)
     return output   
 
+            # OR
+        # if value in self.in_order():
+        #     print(True)
+        #     return True
+        # print(False)        
+        # return False
+
+
+
+def mirror_trees(node1, node2):
+    if node1 is None and node2 is None:
+        return True
+    if node1 is None or node2 is None:
+        return False
+    return (node1.value == node2.value and
+     mirror_trees(node1.left, node2.right) and 
+     mirror_trees(node1.right, node2.left))
+
+
+
 
        
 if __name__ == "__main__":
+
+
 
     node1 = Node(23)
     node2 = Node(8)
     node3 = Node(42)
     node4 = Node(4)
     node5 = Node(16)
-    node6 = Node(27)
-    node7 = Node(50)
+    # node6 = Node(27)
+    # node7 = Node(50)
     node1.left = node2
     node1.right = node3
 
-    node3.left = node6
-    node3.right = node7
+    # node3.left = node6
+    # node3.right = node7
     node2.left = node4
     node2.right = node5
 
-    # binary_tree = BinaryTree()
-    # node11= Node(5)
-    # binary_tree.root = node11
-    # node11.left = node1
+    binary_tree = BinaryTree()
+    node11= Node(5)
+    binary_tree.root = node11
+    node11.left = node1
+    binary_tree.in_order()
+
+    # print(get_2nd_max(node1))
+    
+    tree1 = BinaryTree()
+    tree2 = BinaryTree()
+    node1 = Node(1)
+    tree2.root = node1
+    node1.left = Node(2)
+    node1.right = Node(2)
+
+    node2 = Node(1)
+    tree1.root = node1   
+
+    # node1.left = Node(2)
+    # node1.right = Node(2)
+
+    # node1.left.left = Node(3)
+    # node1.right.right = Node(3)
+    # print(mirror_trees2(node2))
+
+    # node2.right.right.right = Node(4)
+    print(mirror_trees(node1, node2))
+    # print(tree1.root.display())
+    # tree2.root.display()
+
+
+
+    node4 = Node(2)
+
+    # Driver code
+    root1 = Node(1)
+    root2 = Node(1)
+    
+    root1.left = Node(2)
+    root1.right = Node(3)
+    root1.left.left = Node(4)
+    root1.left.right = Node(5)
+    
+    root2.left = Node(3)
+    root2.right = Node(2)
+    root2.right.left = Node(5)
+    root2.right.right = Node(4)
+    
 
     # breadth_first(binary_tree)
     # binary_tree.root.display()
 
-    sum = BinarySearchTree()
-    sum.root = node1
-    sum.root.display()
-    sum.odd_number_sum()
+    # sum = BinarySearchTree()
+    # sum.root = node1
+    # sum.root.display()
+    # sum.odd_number_sum()
 
 
-    # node1 = Node('A')
-    # node2 = Node('B')
-    # node3 = Node('C')
-    # node4 = Node('D')
-    # # node5 = Node('E')
-    # node6 = Node('F')
-    node1,node2,node3,node5 = [Node(i) for i in ['Folder','Folder','.py','.txt']]
-    node7,node8,node9,node10,node11,node12 = [Node(i) for i in ['Folder','Folder','Folder','.js','.txt','.txt']]
-    # node1.left,node1.right,node3.left,node2.left,node2.right = node2,node3,node6,node4,node5
-    tree1 = BinaryTree()
-    tree1.root = node1
-    node1.left = node2
-    node1.right = node3
+    # # node1 = Node('A')
+    # # node2 = Node('B')
+    # # node3 = Node('C')
+    # # node4 = Node('D')
+    # # # node5 = Node('E')
+    # # node6 = Node('F')
+    # node1,node2,node3,node5 = [Node(i) for i in ['Folder','Folder','.py','.txt']]
+    # node7,node8,node9,node10,node11,node12 = [Node(i) for i in ['Folder','Folder','Folder','.js','.txt','.txt']]
+    # # node1.left,node1.right,node3.left,node2.left,node2.right = node2,node3,node6,node4,node5
+    # tree1 = BinaryTree()
+    # tree1.root = node1
+    # node1.left = node2
+    # node1.right = node3
     
-    node2.right = node5
-    # node3.left = node6
+    # node2.right = node5
+    # # node3.left = node6
 
-    tree2 = BinaryTree()
-    tree2.root = node7
-    node7.left = node8
-    node7.right = node9
-    node8.left = node10
-    node8.right = node11
-    node9.left = node12
+    # tree2 = BinaryTree()
+    # tree2.root = node7
+    # node7.left = node8
+    # node7.right = node9
+    # node8.left = node10
+    # node8.right = node11
+    # node9.left = node12
 
-    tree1.compare_directory_structures(tree1,tree2)
+    # tree1.compare_directory_structures(tree1,tree2)
 
 
-    # tree = BinaryTree()
-    # tree.root = node1
-    # tree.root.display()
-    # tree.Get_max()
-    # breadth_first(tree)
+    # # tree = BinaryTree()
+    # # tree.root = node1
+    # # tree.root.display()
+    # # tree.Get_max()
+    # # breadth_first(tree)
     
     
 
-    # tree2 = BinarySearchTree()
-    # [tree2.Add(i) for i in [23,8,42,4,16,27]]
+    tree2 = BinarySearchTree()
+    [tree2.Add(i) for i in [23,8,42,4,16,27]]
     # tree2.in_order()
+
+    tree2.root.display()
+    # print(get_2nd_max(tree2.root))
+    print(tree2.get_2ndmax())
     
-    # search = BinarySearchTree()
-    # search.root = node1
+    # # search = BinarySearchTree()
+    # # search.root = node1
     # search.Add(24)
     # search.root.display()
 

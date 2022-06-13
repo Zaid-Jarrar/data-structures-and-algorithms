@@ -1,4 +1,4 @@
-from tree.trees import BinaryTree,BinarySearchTree,Node,breadth_first
+from tree.trees import BinaryTree,BinarySearchTree,Node,breadth_first,mirror_trees
 from tree.ktree import KTree,tree_fizz_buzz,KNode
 import pytest
         
@@ -104,6 +104,23 @@ def test_fizz_buzz_tree_error():
         tree.root = KNode(1)
         tree.root.children = [KNode("2"),KNode("3")]
         tree_fizz_buzz(tree)
+
+# def test_mirror():
+#     tree1 = BinaryTree()
+#     tree2 = BinaryTree()
+#     node1 = Node(1)
+#     tree2.root = node1
+#     node1.left = Node(2)
+#     node1.right = Node(2)
+
+#     node2 = Node(1)
+#     tree1.root = node2
+#     actual = mirror_trees(tree1,tree2)
+#     assert actual == False
+
+
+
+
 
         
 
